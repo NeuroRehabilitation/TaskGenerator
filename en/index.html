@@ -188,7 +188,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 </p>
 
 <p><input type="checkbox" id="closeMatch" style="transform: scale(2);float:right;" checked="true">  Only generate tasks closely matching the profile</p>
-</br>
+<br />
 
 <input class="button" type="button" name="submit" style="width:24%" value="Generate Training" onclick="generateTraining(document.getElementById('ProfileName').value,document.getElementById('AttentionLevel').innerHTML,document.getElementById('MemoryLevel').innerHTML,document.getElementById('ExecutiveFunctionLevel').innerHTML,document.getElementById('LanguageLevel').innerHTML,document.getElementById('DifficultyLevel').innerHTML,document.getElementById('closeMatch').checked)" />
 <input class="button" type="button" name="submit" style="width:24%;float:right;" value="Download PDF" onclick="download()" />
@@ -211,7 +211,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
   <option value="1" selected="selected">Any</option>
 </select></p>
 
-</br>
+<br />
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="sequencingTask(document.getElementById('SequenceElements').value,document.getElementById('SequenceStep').value,go(SequenceNumbers), go(SquenceWhere), document.getElementById('SequenceMissing').value,0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="sequencingTask(document.getElementById('SequenceElements').value,document.getElementById('SequenceStep').value,go(SequenceNumbers), go(SquenceWhere), document.getElementById('SequenceMissing').value,1)" />
 <input class="button" type="button" name="submit" style="width:16%;float:right;" value="Download PDF" onclick="download()" />
@@ -256,7 +256,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
   <option value="1">Not ordered</option>
 </select></p>
 
-</br>
+<br />
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="cancellationTask(document.getElementById('CancellationElements').value,document.getElementById('CancellationProbability').value,document.getElementById('CancellationSize').value,go(CancellationNumbers),go(CancellationOrder),0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="cancellationTask(document.getElementById('CancellationElements').value,document.getElementById('CancellationProbability').value,document.getElementById('CancellationSize').value,go(CancellationNumbers),go(CancellationOrder),'1')" />
 <input class="button" type="button" name="submit" style="width:16%;float:right;" value="Download PDF" onclick="download()" />
@@ -283,7 +283,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 		}
 </script>
 
-</br>
+<br />
 <!-- <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="associationTask(document.getElementById('AssociationElements').value,0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="associationTask(document.getElementById('AssociationElements').value,'1')" />-->
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="createAssociation('0')" />
@@ -298,7 +298,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 
 <p>Total number of statements: <input type="text" id="ContextElements" width="100%" value="5" style="float:right;width:16%;"></p>
 
-</br>
+<br />
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="contextTask(document.getElementById('ContextElements').value,0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="contextTask(document.getElementById('ContextElements').value,'1')" />
 <input class="button" type="button" name="submit" style="width:16%;float:right;" value="Download PDF" onclick="download()" />
@@ -321,7 +321,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 		}
 </script>
 
-</br>
+<br />
 
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="createPairs('0')" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="createPairs('1')" />
@@ -345,7 +345,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 		}
 </script>
 
-</br>
+<br />
 
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="createSoup('0')" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="createSoup('1')" />
@@ -359,7 +359,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 
 <p>Total number of layers: <input type="text" id="mazeElements" width="100%" value="3" style="float:right;width:16%;"></p>
 
-</br>
+<br />
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="mazeTask(document.getElementById('mazeElements').value,0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="mazeTask(document.getElementById('mazeElements').value,1)" />
 <input class="button" type="button" name="submit" style="width:16%;float:right;" value="Download PDF" onclick="download()" />
@@ -372,7 +372,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 <p>Total number of categories: <input type="text" id="CategoryElements" width="100%" value="3" style="float:right;width:16%;"></p>
 <p>Number of elements per category: <input type="text" id="ElementsPerCategory" width="100%" value="3" style="float:right;width:16%;"></p>
 
-</br>
+<br />
 
 <input class="button" type="button" name="submit" style="width:16%"  value="Generate PDF" onclick="categorizationTask(document.getElementById('CategoryElements').value,document.getElementById('ElementsPerCategory').value,0)" />
 <input class="button" type="button" name="submit"  value="Append to PDF" style="width:16%" onclick="categorizationTask(document.getElementById('CategoryElements').value,document.getElementById('ElementsPerCategory').value,1)" />
@@ -390,7 +390,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 </select></p>
 <p>Number of elements: <input type="text" id="ElementsPerAction" width="100%" value="3" style="float:right;width:16%;"></p>
 
-</br>
+<br />
 
 <input class="button" type="button" name="submit" style="width:16%"  value="Generate PDF" onclick="actionSequencingTask(go(actionType),document.getElementById('ElementsPerAction').value,0)" />
 <input class="button" type="button" name="submit"  value="Append to PDF" style="width:16%" onclick="actionSequencingTask(go(actionType),document.getElementById('ElementsPerAction').value,1)" />
@@ -411,7 +411,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 
 <p>Total number of questions: <input type="text" id="StoriesQuestions" width="100%" value="5" style="float:right;width:16%;"></p>
 
-</br>
+<br />
 <input class="button" type="button" name="submit" style="width:16%" value="Generate PDF" onclick="storiesTask(go(storiesType),document.getElementById('StoriesQuestions').value,0)" />
 <input class="button" type="button" name="submit" style="width:16%" value="Append to PDF" onclick="storiesTask(go(storiesType),document.getElementById('StoriesQuestions').value,'1')" />
 <input class="button" type="button" name="submit" style="width:16%;float:right;" value="Download PDF" onclick="download()" />
