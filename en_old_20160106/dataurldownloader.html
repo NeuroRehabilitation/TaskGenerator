@@ -1,42 +1,38 @@
-<!doctype>
+<!DOCTYPE >
 <html>
-<head>
-	<title>DataURL downloader</title>
-	
-	<script>
-		function downloadURI(uri, name) {
-		  var link = document.createElement("a");
-		  link.download = name;
-		  link.href = uri;
-		  link.click();
-		}
-		
-		/*function downloadURI(uri, name) {
+  <head>
+    <title>DataURL downloader</title>
+
+    <script>
+      function downloadURI(uri, name) {
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        link.click();
+      }
+
+      /*function downloadURI(uri, name) {
 		  window.location.href= uri;
 		}*/
-	</script>
-	
-</head>
+    </script>
+  </head>
 
-<body>
-<h1> Downloading file... </h1>
- 
-	<script>
-	//document.write("<h1>" + window.location.href + "</h1>");
-	
-		if (window.location.href.indexOf("?") >= 0)
-		{
-			var str= window.location.href;
-			str.substr(0,str.indexOf('?')); // "72"
-			var now = new Date();
-			//downloadURI(str.substr(str.indexOf('?')+1),"Tasks_"+strDateTime+".pdf");
-			downloadURI(str.substr(str.indexOf('?')+1),"Training_task.pdf");
-			//document.write("<h1>" +str.substr(str.indexOf('?')+1)+ "</h1>");
-		}
-		else
-		{
-			document.write("<h1>No link found!!</h1>");
-		}
-	</script>
-	
-</body>
+  <body>
+    <h1>Downloading file...</h1>
+
+    <script>
+      //document.write("<h1>" + window.location.href + "</h1>");
+
+      if (window.location.href.indexOf("?") >= 0) {
+        var str = window.location.href;
+        str.substr(0, str.indexOf("?")); // "72"
+        var now = new Date();
+        //downloadURI(str.substr(str.indexOf('?')+1),"Tasks_"+strDateTime+".pdf");
+        downloadURI(str.substr(str.indexOf("?") + 1), "Training_task.pdf");
+        //document.write("<h1>" +str.substr(str.indexOf('?')+1)+ "</h1>");
+      } else {
+        document.write("<h1>No link found!!</h1>");
+      }
+    </script>
+  </body>
+</html>
