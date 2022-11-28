@@ -1,0 +1,487 @@
+<!doctype>
+<html>
+<head>
+	<title>PARP_AVC: Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+    <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.17.custom.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" href="favicon.ico" sizes="16x16" type="image/ico"> 
+	
+	<script type="text/javascript" src="js/math.min.js"></script>
+	
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="js/jspdf.debug.js"></script>
+	
+ 	<script>
+	document.onreadystatechange = function () {
+	  var state = document.readyState
+	  if (state == 'interactive') {
+		   document.getElementById('contents').style.visibility="hidden";
+	  } else if (state == 'complete') {
+		  setTimeout(function(){
+			 document.getElementById('interactive');
+			 $("#load").fadeOut("slow");
+			 document.getElementById('contents').style.visibility="visible";
+		  },3000);
+	  }
+	}
+		$(function() {
+			$("#accordion-basic, #accordion-text, #accordion-graphic").accordion({
+				autoHeight: false,
+				navigation: true
+			});
+			$( "#tabs" ).tabs();
+			$(".button").button();
+		});
+		
+
+		function go(x) {
+			return(x.options[x.selectedIndex].value);
+		}
+		function showValue(newValue,where)
+		{
+			document.getElementById(where).innerHTML="  "+newValue+"  ";
+		}
+
+		function hideToggle(button, elem) {		 
+			$(button).toggle(
+			  function () {
+				$(this).html("<img src='images/preview.png' width='50%' title='Visibilidade do PDF'/>");
+				$(elem).fadeOut();
+			  },
+			  function () {
+				$(this).html("<img src='images/nopreview.png' width='50%' title='Visibilidade do PDF'/>");
+				$(elem).fadeIn();
+			  }
+			);
+			
+		}
+		
+	</script>
+
+</head>
+
+<body>
+
+<div id="load">
+<h1>Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral</h1>
+
+<p style="color: rgb(255,255,255);position: fixed; bottom: 0; width:100%; text-align: center">NeuroRehabLab (c) 2015<p>
+</div>
+
+<div id="contents" style="visibility: hidden">
+<h1>Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral <a href="http://neurorehabilitation.m-iti.org" target="_blank"><img src="./images/Logo.png" class='mobile' alt="NeuroRehabLab logo" width="250" align="right"></a>	</h1>
+
+<div id="tabs"  style="float:left;width:100%;margin:0px;">
+
+<ul>
+	<li class='mobile' ><a href="#profile">Perfil</a></li>
+	<li><a href="#cancellation">Cancelamento</a></li>
+	<li><a href="#sequencing">Sequências Numéricas</a></li>
+	<li><a href="#problems">Resolução de Problemas</a></li>
+	<li><a href="#association">Associação</a></li>
+	<li><a href="#context">Contextos</a></li>
+	<li><a href="#pairs">Pares de Imagens</a></li>
+	<li><a href="#soup">Sopa de Letras</a></li>
+	<li><a href="#maze">Labirintos</a></li>	
+	<li><a href="#categorization">Categorização</a></li>
+	<li><a href="#action">Sequências de Ações</a></li>
+	<li><a href="#stories">Memória de histórias e imagens</a></li>
+	<li><button id="toggle" class='mobile'><img src='images/nopreview.png' width="50%" title="Previsualização do PDF"/></button></li>
+</ul>
+
+<div title="Se o ficheiro não abre, carrega no botão de descarregar.">
+<iframe id="iframe" class='mobile' frameborder="1"  style="float:right;width:48%;margin:1%;height:80%"></iframe>
+
+<script>
+
+var doc = document.getElementById('iframe').contentWindow.document;
+doc.open();
+doc.write('<p style="position: fixed; bottom: 50%; width:100%; text-align: center">Se o ficheiro PDF não aparece aqui<br/>carregue no botão <b><u>DESCARREGAR</b></u><p>');
+doc.close();
+
+hideToggle("#toggle", "#iframe");
+		
+if(window.ActiveXObject || "ActiveXObject" in window)
+//if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) //test for MSIE x.x; True or False
+{
+	document.body.style.zoom="100%";
+	$('#iframe').hide();
+	$('#toggle').hide();
+	alert("MS Explorer não suporta a visualização PDF. Por favor, use um navegador diferente para acessar todos os recursos.")
+}
+else
+{
+	document.body.style.zoom="60%";
+}
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+
+		//$('#toggle').hide();
+		$('.mobile').hide();
+		
+		var width = screen.width;
+		var height = screen.height;
+		
+		if (width+height > 1200)
+			document.body.style.zoom="80%";
+		else
+			document.body.style.zoom="150%";
+		
+		//location.href = "#"; 
+		
+
+		if (window.location.href.indexOf("#") == -1)
+		{
+			//alert('You are using a mobile device. To have access to all features, visit from a desktop computer.');
+			var r = confirm("O Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral funciona só no Google Chrome em dispositivos móveis. Tem o Google Chrome instalado?\n\n Para acessar todas as características, acessa desde um PC.");
+			location.href = "#cancellation"; 
+			if (r == true) {
+				//location.href = "http://neurorehabilitation.m-iti.org/TaskGenerator/";
+				$('#contents').hide();
+				//location.href = "#"; 
+				window.location = "http://neurorehabilitation.m-iti.org/TaskGenerator/pt/";
+				window.location.reload("http://neurorehabilitation.m-iti.org/TaskGenerator/pt/");
+			}
+		}
+	}
+
+</script>
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized sequencing task -->
+<div id="profile" class="mobile" style="height:80%">
+<p><b>Criação de um programa de reabilitação cognitiva personalizado.</b></p>
+<p>Por favor selecione o nível de treino desejado para cada domínio cognitivo e dificuldade geral.</p>
+<br/>
+
+<p>Nome do paciente: <input type="text" id="ProfileName" width="100%" value="" style="float:right;width:24%;"></p>
+
+<p>Nível de atenção: 
+<input type="range" min="1" max="10" value="3" step="0.5" style="float:right;width:24%;" onchange="showValue(this.value,'AttentionLevel')" />
+<span id="AttentionLevel" style="float:right;width:50;">3</span>
+</p>
+
+<p>Nível de memória: 
+<input type="range" min="1" max="10" value="3" step="0.5" style="float:right;width:24%;" onchange="showValue(this.value,'MemoryLevel')" />
+<span id="MemoryLevel" style="float:right;width:50;">3</span>
+</p>
+
+<p>Nível de funções executivas:
+<input type="range" min="1" max="10" value="3" step="0.5" style="float:right;width:24%;" onchange="showValue(this.value,'ExecutiveFunctionLevel')" />
+<span id="ExecutiveFunctionLevel" style="float:right;width:50;">3</span>
+</p>
+
+<p>Nível de linguagem:
+<input type="range" min="1" max="10" value="3" step="0.5" style="float:right;width:24%;" onchange="showValue(this.value,'LanguageLevel')" />
+<span id="LanguageLevel" style="float:right;width:50;">3</span>
+</p>
+
+<p>Nível de dificuldade:
+<input type="range" min="1" max="10" value="3" step="0.5" style="float:right;width:24%;" onchange="showValue(this.value,'DifficultyLevel')" />
+<span id="DifficultyLevel" style="float:right;width:50;">3</span>
+</p>
+
+<p><input type="checkbox" id="closeMatch" style="transform: scale(2);float:right;" checked="true">  Gerar apenas tarefas ajustadas ao perfil</p>
+</br>
+
+<input class="button" type="button" name="submit" style="width:24%" value="Gerar Treino" onclick="generateTraining(document.getElementById('ProfileName').value,document.getElementById('AttentionLevel').innerHTML,document.getElementById('MemoryLevel').innerHTML,document.getElementById('ExecutiveFunctionLevel').innerHTML,document.getElementById('LanguageLevel').innerHTML,document.getElementById('DifficultyLevel').innerHTML,document.getElementById('closeMatch').checked)" />
+<input class="button" type="button" name="submit" style="width:24%;float:right;" value="Descarregar PDF" onclick="download()" />
+</div>
+
+
+<!-- Generation of a simple one page text document with a custom made parametrized sequencing task -->
+<div id="sequencing" style="height:80%" title="The parameters of this task are: the length of the numeric sequence, the step between consecutive numbers, whether it is an ascending or descending sequence, and where the missing elements are placed.">
+<p><b>Geração de um documento simples com uma tarefa de sequências númericas personalizada. </b></p><br/>
+
+<p>Comprimento da sequência: <input type="text" id="SequenceElements" width="100%" value="12" style="float:right;width:16%;"></p>
+<p>Número de elementos em falta: <input type="text" id="SequenceMissing" width="100%" value="3" style="float:right;width:16%;"></p>
+<p>Valor do passo: <input type="text" id="SequenceStep" width="100%" value="2" style="float:right;width:16%;"></p>
+<p>Ordem da sequência: <select id="SequenceNumbers" style="float:right;width:16%;">
+  <option value="0">Ascendente</option>
+  <option value="1">Descendente</option>
+  <option value="2" selected="selected">Qualquer</option>
+</select></p><p>Posição dos elementos em falta: <select id="SquenceWhere" style="float:right;width:16%;">
+  <option value="0">Início</option>
+  <option value="1" selected="selected">Qualquer</option>
+</select></p>
+
+</br>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="sequencingTask(document.getElementById('SequenceElements').value,document.getElementById('SequenceStep').value,go(SequenceNumbers), go(SquenceWhere), document.getElementById('SequenceMissing').value,0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="sequencingTask(document.getElementById('SequenceElements').value,document.getElementById('SequenceStep').value,go(SequenceNumbers), go(SquenceWhere), document.getElementById('SequenceMissing').value,1)" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+</div>
+
+<!-- Generation of a simple one page text document with a custom made computation problems -->
+<div id="problems" style="height:80%">
+<p><b>Geração de um documento de uma página simples com uma lista de problemas a resolver.</b>
+</b></p><br/>
+
+<p>Comprimento do problema: <input type="text" id="ProblemElements" width="100%" value="4" style="float:right;width:16%;"></p>
+<p>Número de dígitos: <select id="ProblemDigits" style="float:right;width:16%;">
+  <option value="0" selected="selected">< 10</option>
+  <option value="1">> 10</option>
+</select></p>
+<p>Tipo de problema: <select id="ProblemType" style="float:right;width:16%;">
+  <option value="0" selected="selected">Explicito</option>
+  <option value="1">Implicito</option>
+</select></p>
+<br/>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="problemTask(document.getElementById('ProblemElements').value,go(ProblemDigits),go(ProblemType),0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="problemTask(document.getElementById('ProblemElements').value,go(ProblemDigits),go(ProblemType),1)" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized cancellation task -->
+<div id="cancellation" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa cancelamento parametrizada.</b></p><br/>
+
+<p>Número total de elementos: <input type="text" id="CancellationElements" width="100%" value="128" style="float:right;width:16%;"></p>
+<p>Percentagem de elementos alvo: <input type="text" id="CancellationProbability"  value="10" style="float:right;width:16%;"></p>
+<p>Tamanho do alvo: <input type="text" id="CancellationSize"  value="15" style="float:right;width:16%;"></p>
+
+<p>Tipo de conteúdo: <select id="CancellationNumbers" style="float:right;width:16%;">
+  <option value="0">Texto</option>
+  <option value="1">Numérico</option>
+  <option value="2">Símbolos</option>
+</select></p>
+
+<p>Tipo de organização: <select id="CancellationOrder" style="float:right;width:16%;">
+  <option value="0">Ordenado</option>
+  <option value="1">Desordenado</option>
+</select></p>
+
+</br>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="cancellationTask(document.getElementById('CancellationElements').value,document.getElementById('CancellationProbability').value,document.getElementById('CancellationSize').value,go(CancellationNumbers),go(CancellationOrder),0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="cancellationTask(document.getElementById('CancellationElements').value,document.getElementById('CancellationProbability').value,document.getElementById('CancellationSize').value,go(CancellationNumbers),go(CancellationOrder),'1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized association task -->
+<div id="association" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa de associação parametrizada.</b></p><br/>
+
+<p>Número de associações: <input type="text" id="AssociationElements" width="100%" value="5" style="float:right;width:16%;"></p>
+<p>Tipo de imagem: <select id="AssociationImage" style="float:right;width:16%;">
+  <option value="0">Clip art</option>
+  <option value="1">Fotografias</option>
+</select></p>
+
+<script>
+		function createAssociation(x) {
+			if( go(AssociationImage) == 0)
+				associationTask(document.getElementById('AssociationElements').value,x);
+			else
+				associationTask_pics(document.getElementById('AssociationElements').value,x);
+		}
+</script>
+
+</br>
+<!-- <input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="associationTask(document.getElementById('AssociationElements').value,0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="associationTask(document.getElementById('AssociationElements').value,'1')" />-->
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="createAssociation('0')" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="createAssociation('1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized context task -->
+<div id="context" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa de compreensão de contextos parametrizada. Indique se as declarações estão corretas ou incorretas.</b></p><br/>
+
+<p>Número total de declarações: <input type="text" id="ContextElements" width="100%" value="5" style="float:right;width:16%;"></p>
+
+</br>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="contextTask(document.getElementById('ContextElements').value,0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="contextTask(document.getElementById('ContextElements').value,'1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made image pairs task -->
+<div id="pairs" style="height:80%">
+<p><b>Geração de um documento de texto de uma página com pares de imagens para memorizar.</b></p><br/>
+
+<p>número total de pares de imagens: <input type="text" id="PairsElements" width="100%" value="5" style="float:right;width:16%;"></p>
+<p>Tipo de imagem: <select id="PairsImage" style="float:right;width:16%;">
+  <option value="0">Clip art</option>
+  <option value="1">Fotografias</option>
+</select></p>
+
+<script>
+		function createPairs(x) {
+			imagePairsTask(document.getElementById('PairsElements').value,go(PairsImage),x);
+		}
+</script>
+
+</br>
+
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="createPairs('0')" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="createPairs('1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made image pairs task -->
+<div id="soup" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma sopa de letras parametrizadas.</b></p><br/>
+
+<p>Número total de palavras: <input type="text" id="SoupElements" width="100%" value="5" style="float:right;width:16%;"></p>
+<p>Dar pistas: <select id="Cues" style="float:right;width:16%;">
+  <option value="0">Sem pistas</option>
+  <option value="1">Com pistas</option>
+</select></p>
+
+<script>
+		function createSoup(x) {
+			soupTask(document.getElementById('SoupElements').value,go(Cues),x);
+		}
+</script>
+
+</br>
+
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="createSoup('0')" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="createSoup('1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized maze task -->
+<div id="maze" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com um labirinto parametrizável.</b></p><br/>
+
+<p>Número total de camadas: <input type="text" id="mazeElements" width="100%" value="3" style="float:right;width:16%;"></p>
+
+</br>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="mazeTask(document.getElementById('mazeElements').value,0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="mazeTask(document.getElementById('mazeElements').value,1)" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized categorization task -->
+<div id="categorization" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa categorização parametrizada.</b></p><br/>
+
+<p>Número total de categorias: <input type="text" id="CategoryElements" width="100%" value="3" style="float:right;width:16%;"></p>
+<p>Número de elementos por categoria: <input type="text" id="ElementsPerCategory" width="100%" value="3" style="float:right;width:16%;"></p>
+
+</br>
+
+<input class="button" type="button" name="submit" style="width:16%"  value="Gerar PDF" onclick="categorizationTask(document.getElementById('CategoryElements').value,document.getElementById('ElementsPerCategory').value,0)" />
+<input class="button" type="button" name="submit"  value="Annexar ao PDF" style="width:16%" onclick="categorizationTask(document.getElementById('CategoryElements').value,document.getElementById('ElementsPerCategory').value,1)" />
+<input class="button" type="button" name="submit"  value="Descarregar PDF" style="width:16%;float:right;" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized action sequencing task -->
+<div id="action" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa de sequências de ações parametrizada.</b></p><br/>
+
+<p>Tipo de ação: <select id="actionType" style="float:right;width:16%;">
+  <option value="0">Implicita</option>
+  <option value="1">Explicita</option>
+</select></p>
+<p>Número de elementos:<input type="text" id="ElementsPerAction" width="100%" value="3" style="float:right;width:16%;"></p>
+
+</br>
+
+<input class="button" type="button" name="submit" style="width:16%"  value="Gerar PDF" onclick="actionSequencingTask(go(actionType),document.getElementById('ElementsPerAction').value,0)" />
+<input class="button" type="button" name="submit"  value="Annexar ao PDF" style="width:16%" onclick="actionSequencingTask(go(actionType),document.getElementById('ElementsPerAction').value,1)" />
+<input class="button" type="button" name="submit"  value="Descarregar PDF" style="width:16%;float:right;" onclick="download()" />
+
+</div>
+
+<!-- Generation of a simple one page text document with a custom made parametrized memory recall task -->
+<div id="stories" style="height:80%">
+<p><b>Geração de um documento de texto de uma página simples com uma tarefa de memória parametrizada.</b></p><br/>
+
+<p>Tipo de história: <select id="storiesType" style="float:right;width:16%;">
+  <option value="0">Texto curto</option>
+  <option value="1">Texto médio</option>
+  <option value="2">Texto longo</option>
+  <option value="3">Imagens</option>
+</select></p>
+
+<p>Número total de perguntas: <input type="text" id="StoriesQuestions" width="100%" value="5" style="float:right;width:16%;"></p>
+
+</br>
+<input class="button" type="button" name="submit" style="width:16%" value="Gerar PDF" onclick="storiesTask(go(storiesType),document.getElementById('StoriesQuestions').value,0)" />
+<input class="button" type="button" name="submit" style="width:16%" value="Annexar ao PDF" onclick="storiesTask(go(storiesType),document.getElementById('StoriesQuestions').value,'1')" />
+<input class="button" type="button" name="submit" style="width:16%;float:right;" value="Descarregar PDF" onclick="download()" />
+
+</div>
+
+<script>
+	//Bubble tooltips!!
+	$( "[value*='Descarregar PDF']" ).hide();
+	$( "[value*='Annexar ao PDF']" ).hide();
+	
+	jQuery(document).ready(function() {
+		$("[value*='Gerar Treino'],[value*='Gerar PDF'],[value*='Annexar ao PDF']").click(function() {
+		$(this).parent().find( "[value*='Descarregar PDF']" ).each(function(){
+			$(this).show();
+			fooPosition = $(this).position();
+			$tooltip = $('<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>descarregar</b></u> o ficheiro pdf</p></div>').insertAfter($(this));
+		});
+		
+		$( "[value*='Descarregar PDF']" ).show();
+		$( "[value*='Annexar ao PDF']" ).show();
+		
+		$('.bubble').delay(5000).fadeOut(400);
+		$tooltip.css({
+			position : 'absolute',
+			top : fooPosition.top + 60,
+			left : fooPosition.left,
+			width : $(this).width(),
+		});
+		
+		$(this).parent().find( "[value*='Annexar ao PDF']" ).each(function(){
+			$(this).show();
+			fooPosition = $(this).position();
+			$tooltip = $('<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>anexar</b></u> uma nova página para o ficheiro pdf</p></div>').insertAfter($(this));
+		});
+		
+		$('.bubble').delay(5000).fadeOut(400);
+		$tooltip.css({
+			position : 'absolute',
+			top : fooPosition.top + 60,
+			left : fooPosition.left,
+			width : $(this).width(),
+		});
+
+});
+});
+
+</script>
+
+<p align="center"><a href="http://neurorehabilitation.m-iti.org" target="_blank">NeuroRehabLab</a> (c) 2015<p>
+
+</div>
+
+</div>
+
+    <script type="text/javascript" src="js/IPNP_Object_Pictures.js"></script>
+    <script type="text/javascript" src="js/Object_Pictures.js"></script>
+    <script type="text/javascript" src="js/Category_Pictures.js"></script>
+	<script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/associationTask.js"></script>
+    <script type="text/javascript" src="js/associationTask_pics.js"></script>
+	<script type="text/javascript" src="js/cancellationTask.js"></script>
+	<script type="text/javascript" src="js/contextTask.js"></script>
+	<script type="text/javascript" src="js/storiesTask.js"></script>
+	<script type="text/javascript" src="js/problemTask.js"></script>
+    <script type="text/javascript" src="js/sequencingTask.js"></script>
+    <script type="text/javascript" src="js/actionSequencingTask.js"></script>
+    <script type="text/javascript" src="js/imagePairsTask.js"></script>
+    <script type="text/javascript" src="js/soupTask.js"></script>
+    <script type="text/javascript" src="js/mazeTask.js"></script>
+    <script type="text/javascript" src="js/categorizationTask.js"></script>
+	
+</body>
