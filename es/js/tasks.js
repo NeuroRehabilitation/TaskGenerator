@@ -21,7 +21,7 @@ function createCover(
   page = 1;
 
   var loremipsum =
-    "El 'NeuroRehabLab Task Generator' es un software que se ha desarrollado con la colaboración de más de 20 profesionales de la salud que utiliza modelos computacionales de función cognitiva para brindar una capacitación altamente personalizada a cada individuo. Las tareas creadas con el 'Generador de tareas NeuroRehabLab' se generan de manera procesal, es decir, siempre son diferentes cada vez que se crean. \n \n Visite http://neurorehabilitation.m-iti.org para obtener más información ";
+    "El 'NeuroRehabLab Task Generator' es un software que se ha desarrollado con la colaboración de más de 20 profesionales de la salud que utiliza modelos computacionales de función cognitiva para brindar una capacitación altamente personalizada a cada individuo. Las tareas creadas con el 'Generador de tareas NeuroRehabLab' se generan de manera procesal, es decir, siempre son diferentes cada vez que se crean. \n \n Visite http://neurorehablab.arditi.pt para obtener más información ";
   var gray = 230;
 
   //Header gray fill
@@ -163,7 +163,7 @@ function createFrame(doc, page, model) {
   ].join(" ");
   doc.text(20, 285, "Generado en " + strDateTime);
   doc.setFontSize(8);
-  doc.text(76, 293, "NeuroRehabLab (c) - http://neurorehabilitation.m-iti.org");
+  doc.text(76, 293, "NeuroRehabLab (c) - http://neurorehablab.arditi.pt");
 
   return doc;
 }
@@ -182,7 +182,7 @@ function download() {
   doc.save("Tareas_" + strDateTime + ".pdf");
 
   //var string = doc.output('datauristring');
-  //window.location.href="http://neurorehabilitation.m-iti.org/TaskGenerator/dataurldownloader.html?"+string;
+  //window.location.href="http://neurorehablab.arditi.pt/TaskGenerator/dataurldownloader.html?"+string;
 }
 
 function generateTraining(

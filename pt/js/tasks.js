@@ -21,7 +21,7 @@ function createCover(
   page = 1;
 
   var loremipsum =
-    "PARP_AVC: Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral é um software desenvolvido com a colaboração de mais de 20 profissionais de saúde. Através de modelos computacionais para as funções cognitivas, este programa oferece um treino altamente personalizado a cada indivíduo. As tarefas criadas são geradas processualmente, isto é, são sempre diferentes.\nVisite http://neurorehabilitation.m-iti.org para mais informações.";
+    "PARP_AVC: Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral é um software desenvolvido com a colaboração de mais de 20 profissionais de saúde. Através de modelos computacionais para as funções cognitivas, este programa oferece um treino altamente personalizado a cada indivíduo. As tarefas criadas são geradas processualmente, isto é, são sempre diferentes.\nVisite http://neurorehablab.arditi.pt para mais informações.";
 
   var gray = 230;
 
@@ -164,7 +164,7 @@ function createFrame(doc, page, model) {
   ].join(" ");
   doc.text(20, 285, "Gerado em " + strDateTime);
   doc.setFontSize(8);
-  doc.text(76, 293, "NeuroRehabLab (c) - http://neurorehabilitation.m-iti.org");
+  doc.text(76, 293, "NeuroRehabLab (c) - http://neurorehablab.arditi.pt");
 
   return doc;
 }
@@ -183,7 +183,7 @@ function download() {
   doc.save("Tasks_" + strDateTime + ".pdf");
 
   //var string = doc.output('datauristring');
-  //window.location.href="http://neurorehabilitation.m-iti.org/TaskGenerator/dataurldownloader.html?"+string;
+  //window.location.href="http://neurorehablab.arditi.pt/TaskGenerator/dataurldownloader.html?"+string;
 }
 
 function generateTraining(
