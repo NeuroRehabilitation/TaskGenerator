@@ -58,16 +58,16 @@
         $(button).toggle(
           function () {
             $(this).html(
-              "<img src='images/preview.png' width='50%' title='Visibilidade do PDF'/>"
+              "<img src='images/preview.png' width='50%' title='Visibilidade do PDF'/>",
             );
             $(elem).fadeOut();
           },
           function () {
             $(this).html(
-              "<img src='images/nopreview.png' width='50%' title='Visibilidade do PDF'/>"
+              "<img src='images/nopreview.png' width='50%' title='Visibilidade do PDF'/>",
             );
             $(elem).fadeIn();
-          }
+          },
         );
       }
     </script>
@@ -145,7 +145,7 @@
             var doc = document.getElementById("iframe").contentWindow.document;
             doc.open();
             doc.write(
-              '<p style="position: fixed; bottom: 50%; width:100%; text-align: center">Se o ficheiro PDF não aparece aqui<br/>carregue no botão <b><u>DESCARREGAR</b></u><p>'
+              '<p style="position: fixed; bottom: 50%; width:100%; text-align: center">Se o ficheiro PDF não aparece aqui<br/>carregue no botão <b><u>DESCARREGAR</b></u><p>',
             );
             doc.close();
 
@@ -157,7 +157,7 @@
               $("#iframe").hide();
               $("#toggle").hide();
               alert(
-                "MS Explorer não suporta a visualização PDF. Por favor, use um navegador diferente para acessar todos os recursos."
+                "MS Explorer não suporta a visualização PDF. Por favor, use um navegador diferente para acessar todos os recursos.",
               );
             } else {
               document.body.style.zoom = "60%";
@@ -165,7 +165,7 @@
 
             if (
               /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
-                navigator.userAgent
+                navigator.userAgent,
               )
             ) {
               //$('#toggle').hide();
@@ -182,7 +182,7 @@
               if (window.location.href.indexOf("#") == -1) {
                 //alert('You are using a mobile device. To have access to all features, visit from a desktop computer.');
                 var r = confirm(
-                  "O Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral funciona só no Google Chrome em dispositivos móveis. Tem o Google Chrome instalado?\n\n Para acessar todas as características, acessa desde um PC."
+                  "O Programa Adaptável para a Reabilitação Personalizada do Acidente Vascular Cerebral funciona só no Google Chrome em dispositivos móveis. Tem o Google Chrome instalado?\n\n Para acessar todas as características, acessa desde um PC.",
                 );
                 location.href = "#cancellation";
                 if (r == true) {
@@ -192,7 +192,7 @@
                   window.location =
                     "http://neurorehablab.arditi.pt/TaskGenerator/pt/";
                   window.location.reload(
-                    "http://neurorehablab.arditi.pt/TaskGenerator/pt/"
+                    "http://neurorehablab.arditi.pt/TaskGenerator/pt/",
                   );
                 }
               }
@@ -590,12 +590,12 @@
               if (go(AssociationImage) == 0)
                 associationTask(
                   document.getElementById("AssociationElements").value,
-                  x
+                  x,
                 );
               else
                 associationTask_pics(
                   document.getElementById("AssociationElements").value,
-                  x
+                  x,
                 );
             }
           </script>
@@ -711,7 +711,7 @@
               imagePairsTask(
                 document.getElementById("PairsElements").value,
                 go(PairsImage),
-                x
+                x,
               );
             }
           </script>
@@ -777,7 +777,7 @@
               soupTask(
                 document.getElementById("SoupElements").value,
                 go(Cues),
-                x
+                x,
               );
             }
           </script>
@@ -1037,7 +1037,7 @@
 
           jQuery(document).ready(function () {
             $(
-              "[value*='Gerar Treino'],[value*='Gerar PDF'],[value*='Annexar ao PDF']"
+              "[value*='Gerar Treino'],[value*='Gerar PDF'],[value*='Annexar ao PDF']",
             ).click(function () {
               $(this)
                 .parent()
@@ -1046,7 +1046,7 @@
                   $(this).show();
                   fooPosition = $(this).position();
                   $tooltip = $(
-                    '<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>descarregar</b></u> o ficheiro pdf</p></div>'
+                    '<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>descarregar</b></u> o ficheiro pdf</p></div>',
                   ).insertAfter($(this));
                 });
 
@@ -1068,7 +1068,7 @@
                   $(this).show();
                   fooPosition = $(this).position();
                   $tooltip = $(
-                    '<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>anexar</b></u> uma nova página para o ficheiro pdf</p></div>'
+                    '<div class="bubble" style="width:16%;float:right;"><p>Pressione aqui para <b><u>anexar</b></u> uma nova página para o ficheiro pdf</p></div>',
                   ).insertAfter($(this));
                 });
 

@@ -98,7 +98,7 @@ function associationTask(size, newpage) {
         35,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       left.splice(index, 1);
 
@@ -109,7 +109,7 @@ function associationTask(size, newpage) {
         100 + 7 * step,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       right.splice(index, 1);
     }
@@ -131,7 +131,7 @@ function associationTask(size, newpage) {
   doc.text(
     20,
     275,
-    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)"
+    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)",
   );
 
   var string = doc.output("datauristring");

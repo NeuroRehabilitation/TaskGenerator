@@ -245,7 +245,7 @@ function soupTask(n_words, cues, newpage) {
         word,
         matrix_words,
         n_elements,
-        orientation
+        orientation,
       );
     }
     write(
@@ -255,7 +255,7 @@ function soupTask(n_words, cues, newpage) {
       matrix,
       matrix_words,
       n_elements,
-      orientation
+      orientation,
     );
     list.push(word);
     target.splice(index, 1);
@@ -287,7 +287,7 @@ function soupTask(n_words, cues, newpage) {
       doc.text(
         20 + width / 3 + 0.5 * size + x * width - size / 5,
         80 + height / 3 + 0.5 * size + y * height,
-        matrix[n_elements * y + x]
+        matrix[n_elements * y + x],
       );
     }
   }
@@ -347,7 +347,7 @@ function write(
   matrix,
   matrix_words,
   n_elements,
-  orientation
+  orientation,
 ) {
   switch (orientation) {
     case 0:

@@ -75,7 +75,7 @@ function cancellationTask(
   size,
   numbers,
   order,
-  newpage
+  newpage,
 ) {
   // You'll need to make your image into a Data URL
   // Use http://dataurl.net/#dataurlmaker
@@ -94,7 +94,7 @@ function cancellationTask(
   doc = createFrame(
     doc,
     page,
-    cancellationModel(elements, probability, size, numbers, order)
+    cancellationModel(elements, probability, size, numbers, order),
   );
 
   // Task specific variables
@@ -210,13 +210,13 @@ function cancellationTask(
             20 + (width / 3) * (1 - order) + 0.5 * size + x * width + offset,
             75 + (height / 3) * (1 - order) + 0.5 * size + y * height + offset,
             size / 3,
-            size / 3
+            size / 3,
           );
         else
           doc.text(
             20 + (width / 3) * (1 - order) + 0.5 * size + x * width + offset,
             80 + (height / 3) * (1 - order) + 0.5 * size + y * height + offset,
-            target
+            target,
           );
       } else {
         if (numbers == 2) {
@@ -227,14 +227,14 @@ function cancellationTask(
             20 + (width / 3) * (1 - order) + 0.5 * size + x * width + offset,
             75 + (height / 3) * (1 - order) + 0.5 * size + y * height + offset,
             size / 3,
-            size / 3
+            size / 3,
           );
         } else {
           i = Math.floor(Math.random() * distractor.length);
           doc.text(
             20 + (width / 3) * (1 - order) + 0.5 * size + x * width + offset,
             80 + (height / 3) * (1 - order) + 0.5 * size + y * height + offset,
-            distractor[i]
+            distractor[i],
           );
         }
       }

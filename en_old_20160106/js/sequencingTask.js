@@ -51,7 +51,7 @@ function sequencingTask(size, step, order, where, missing, newpage) {
   doc = createFrame(
     doc,
     page,
-    sequencingModel(size, step, order, where, missing)
+    sequencingModel(size, step, order, where, missing),
   );
 
   var instructions =

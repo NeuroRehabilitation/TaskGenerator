@@ -57,16 +57,16 @@
         $(button).toggle(
           function () {
             $(this).html(
-              "<img src='images/preview.png' width='50%' title='Toggle PDF preview visibility'/>"
+              "<img src='images/preview.png' width='50%' title='Toggle PDF preview visibility'/>",
             );
             $(elem).fadeOut();
           },
           function () {
             $(this).html(
-              "<img src='images/nopreview.png' width='50%' title='Toggle PDF preview visibility'/>"
+              "<img src='images/nopreview.png' width='50%' title='Toggle PDF preview visibility'/>",
             );
             $(elem).fadeIn();
-          }
+          },
         );
       }
     </script>
@@ -142,7 +142,7 @@
             var doc = document.getElementById("iframe").contentWindow.document;
             doc.open();
             doc.write(
-              '<p style="position: fixed; bottom: 50%; width:100%; text-align: center">If your pdf file does not open here, do not worry. <br/>Just press the <b><u>DOWNLOAD</b></u> button<p>'
+              '<p style="position: fixed; bottom: 50%; width:100%; text-align: center">If your pdf file does not open here, do not worry. <br/>Just press the <b><u>DOWNLOAD</b></u> button<p>',
             );
             doc.close();
 
@@ -154,7 +154,7 @@
               $("#iframe").hide();
               $("#toggle").hide();
               alert(
-                "MS Explorer does not support PDF preview. Please use a different browser to access all features."
+                "MS Explorer does not support PDF preview. Please use a different browser to access all features.",
               );
             } else {
               document.body.style.zoom = "60%";
@@ -162,7 +162,7 @@
 
             if (
               /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
-                navigator.userAgent
+                navigator.userAgent,
               )
             ) {
               //$('#toggle').hide();
@@ -179,7 +179,7 @@
               if (window.location.href.indexOf("#") == -1) {
                 //alert('You are using a mobile device. To have access to all features, visit from a desktop computer.');
                 var r = confirm(
-                  "The NeuroRehabLab Task Generator only runs from Google Chrome's browser in mobile devices. Do you have a Google Chrome installed?\n\n To have access to all features, visit from a desktop computer."
+                  "The NeuroRehabLab Task Generator only runs from Google Chrome's browser in mobile devices. Do you have a Google Chrome installed?\n\n To have access to all features, visit from a desktop computer.",
                 );
                 location.href = "#cancellation";
                 if (r == true) {
@@ -189,7 +189,7 @@
                   window.location =
                     "http://neurorehablab.arditi.pt/TaskGenerator/en/";
                   window.location.reload(
-                    "http://neurorehablab.arditi.pt/TaskGenerator/en/"
+                    "http://neurorehablab.arditi.pt/TaskGenerator/en/",
                   );
                 }
               }
@@ -587,12 +587,12 @@
               if (go(AssociationImage) == 0)
                 associationTask(
                   document.getElementById("AssociationElements").value,
-                  x
+                  x,
                 );
               else
                 associationTask_pics(
                   document.getElementById("AssociationElements").value,
-                  x
+                  x,
                 );
             }
           </script>
@@ -708,7 +708,7 @@
               imagePairsTask(
                 document.getElementById("PairsElements").value,
                 go(PairsImage),
-                x
+                x,
               );
             }
           </script>
@@ -774,7 +774,7 @@
               soupTask(
                 document.getElementById("SoupElements").value,
                 go(Cues),
-                x
+                x,
               );
             }
           </script>
@@ -1035,7 +1035,7 @@
 
           jQuery(document).ready(function () {
             $(
-              "[value*='Generate Training'],[value*='Generate PDF'],[value*='Append to PDF']"
+              "[value*='Generate Training'],[value*='Generate PDF'],[value*='Append to PDF']",
             ).click(function () {
               $(this)
                 .parent()
@@ -1044,7 +1044,7 @@
                   $(this).show();
                   fooPosition = $(this).position();
                   $tooltip = $(
-                    '<div class="bubble" style="width:16%;float:right;"><p>Press here to <b><u>download</b></u> the pdf file</p></div>'
+                    '<div class="bubble" style="width:16%;float:right;"><p>Press here to <b><u>download</b></u> the pdf file</p></div>',
                   ).insertAfter($(this));
                 });
 
@@ -1066,7 +1066,7 @@
                   $(this).show();
                   fooPosition = $(this).position();
                   $tooltip = $(
-                    '<div class="bubble" style="width:16%;float:right;"><p>Press here to <b><u>append</b></u> a new page to the pdf file</p></div>'
+                    '<div class="bubble" style="width:16%;float:right;"><p>Press here to <b><u>append</b></u> a new page to the pdf file</p></div>',
                   ).insertAfter($(this));
                 });
 

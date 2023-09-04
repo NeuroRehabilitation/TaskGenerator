@@ -66,7 +66,7 @@ function associationTask_pics(size, newpage) {
         25,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       doc.roundedRect(
         25,
@@ -74,7 +74,7 @@ function associationTask_pics(size, newpage) {
         dimension,
         dimension,
         3,
-        3
+        3,
       );
       doc.roundedRect(
         25 + dimension - 3,
@@ -83,7 +83,7 @@ function associationTask_pics(size, newpage) {
         6,
         3,
         3,
-        "F"
+        "F",
       );
       left.splice(index, 1);
 
@@ -94,7 +94,7 @@ function associationTask_pics(size, newpage) {
         188 - dimension,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       doc.roundedRect(
         188 - dimension,
@@ -102,7 +102,7 @@ function associationTask_pics(size, newpage) {
         dimension,
         dimension,
         3,
-        3
+        3,
       );
       doc.roundedRect(
         188 - dimension - 3,
@@ -111,7 +111,7 @@ function associationTask_pics(size, newpage) {
         6,
         3,
         3,
-        "F"
+        "F",
       );
       right.splice(index, 1);
     }

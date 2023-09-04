@@ -102,7 +102,7 @@ function associationTask(size, newpage) {
         25,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       doc.roundedRect(
         25,
@@ -110,7 +110,7 @@ function associationTask(size, newpage) {
         dimension,
         dimension,
         3,
-        3
+        3,
       );
       doc.roundedRect(
         25 + dimension - 3,
@@ -119,7 +119,7 @@ function associationTask(size, newpage) {
         6,
         3,
         3,
-        "F"
+        "F",
       );
       left.splice(index, 1);
 
@@ -130,7 +130,7 @@ function associationTask(size, newpage) {
         188 - dimension,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       doc.roundedRect(
         188 - dimension,
@@ -138,7 +138,7 @@ function associationTask(size, newpage) {
         dimension,
         dimension,
         3,
-        3
+        3,
       );
       doc.roundedRect(
         188 - dimension - 3,
@@ -147,7 +147,7 @@ function associationTask(size, newpage) {
         6,
         3,
         3,
-        "F"
+        "F",
       );
       right.splice(index, 1);
     }
@@ -169,7 +169,7 @@ function associationTask(size, newpage) {
   doc.text(
     20,
     275,
-    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)"
+    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)",
   );
 
   var string = doc.output("datauristring");

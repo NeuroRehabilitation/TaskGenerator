@@ -15,7 +15,7 @@ function maze(x, y) {
     unvisited[j] = [];
     for (var k = 0; k < y + 1; k++)
       unvisited[j].push(
-        j > 0 && j < x + 1 && k > 0 && (j != here[0] + 1 || k != here[1] + 1)
+        j > 0 && j < x + 1 && k > 0 && (j != here[0] + 1 || k != here[1] + 1),
       );
   }
   while (0 < n) {
@@ -137,7 +137,7 @@ function mazeTask(elements, newpage) {
         position_x + k * width,
         position_y + j * height,
         position_x + k * width + width,
-        position_y + j * height
+        position_y + j * height,
       );
     if (labirynth[i] == "+") {
       if (i > 1)
@@ -146,7 +146,7 @@ function mazeTask(elements, newpage) {
             position_x + k * width,
             position_y + j * height,
             position_x + k * width + width / 2,
-            position_y + j * height
+            position_y + j * height,
           );
 
       if ((labirynth[i + 1] != " ") & (labirynth[i + 1] != "."))
@@ -154,7 +154,7 @@ function mazeTask(elements, newpage) {
           position_x + k * width + width / 2,
           position_y + j * height,
           position_x + k * width + width,
-          position_y + j * height
+          position_y + j * height,
         );
     }
 
@@ -163,7 +163,7 @@ function mazeTask(elements, newpage) {
         position_x + k * width + width / 2,
         position_y + (j - 1) * height,
         position_x + k * width + width / 2,
-        position_y + j * height + height
+        position_y + j * height + height,
       );
     }
 

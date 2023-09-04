@@ -294,7 +294,7 @@ var jsPDF = (function (global) {
                 (adler32 >> 16) & 0xff,
                 (adler32 >> 24) & 0xff,
               ]),
-              p.length + 2
+              p.length + 2,
             );
             p = String.fromCharCode.apply(null, arr);
             out("<</Length " + p.length + " /Filter [/FlateDecode]>>");
@@ -430,7 +430,7 @@ var jsPDF = (function (global) {
             standardFonts[i][0],
             standardFonts[i][1],
             standardFonts[i][2],
-            encoding
+            encoding,
           );
 
           // adding aliases for standard fonts, this time matching the capitalization
@@ -605,7 +605,7 @@ var jsPDF = (function (global) {
                 i +
                 " of string '" +
                 text +
-                "' exceeds 16bits. Cannot be encoded into UCS-2 BE"
+                "' exceeds 16bits. Cannot be encoded into UCS-2 BE",
             );
           }
           newtext.push(bch);
@@ -645,7 +645,7 @@ var jsPDF = (function (global) {
                 key.substr(1) +
                 " (" +
                 pdfEscape(documentProperties[key]) +
-                ")"
+                ")",
             );
           }
         }
@@ -666,7 +666,7 @@ var jsPDF = (function (global) {
             padd2(created.getSeconds()),
             tzstr,
             ")",
-          ].join("")
+          ].join(""),
         );
       },
       putCatalog = function () {
@@ -819,7 +819,7 @@ var jsPDF = (function (global) {
               fontName +
               "', '" +
               fontStyle +
-              "'. Refer to getFontList() for available fonts."
+              "'. Refer to getFontList() for available fonts.",
           );
         }
         return key;
@@ -1033,7 +1033,7 @@ var jsPDF = (function (global) {
         out(
           arguments.length === 1
             ? string1
-            : Array.prototype.join.call(arguments, " ")
+            : Array.prototype.join.call(arguments, " "),
         );
       },
       getCoordinateString: function (value) {
@@ -1172,7 +1172,7 @@ var jsPDF = (function (global) {
             da.push(ESC(sa.shift()));
           }
           var linesLeft = Math.ceil(
-            ((pageHeight - y) * k) / (activeFontSize * lineHeightProportion)
+            ((pageHeight - y) * k) / (activeFontSize * lineHeightProportion),
           );
           if (0 <= linesLeft && linesLeft < da.length + 1) {
             todo = da.splice(linesLeft - 1);
@@ -1182,7 +1182,7 @@ var jsPDF = (function (global) {
           throw new Error(
             'Type of text must be string or Array. "' +
               text +
-              '" is not recognized.'
+              '" is not recognized.',
           );
         }
         // Using "'" ("go next line and render text" mark) would save space but would complicate our rendering code, templates
@@ -1210,7 +1210,7 @@ var jsPDF = (function (global) {
             mode +
             "\n(" +
             text +
-            ") Tj\nET"
+            ") Tj\nET",
         );
 
         if (todo) {
@@ -1312,7 +1312,7 @@ var jsPDF = (function (global) {
               f3(x4 * k) +
               " " +
               f3((pageHeight - y4) * k) +
-              " c"
+              " c",
           );
         }
       }
@@ -1345,8 +1345,8 @@ var jsPDF = (function (global) {
       var op = getStyle(style);
       out(
         [f2(x * k), f2((pageHeight - y) * k), f2(w * k), f2(-h * k), "re"].join(
-          " "
-        )
+          " ",
+        ),
       );
 
       if (style !== null) {
@@ -1382,7 +1382,7 @@ var jsPDF = (function (global) {
         y1, // start of path
         [1, 1],
         style,
-        true
+        true,
       );
       return this;
     };
@@ -1418,7 +1418,7 @@ var jsPDF = (function (global) {
         x + rx,
         y, // start of path
         [1, 1],
-        style
+        style,
       );
       return this;
     };
@@ -1452,7 +1452,7 @@ var jsPDF = (function (global) {
           f2(x * k),
           f2((pageHeight - (y - ry)) * k),
           "c",
-        ].join(" ")
+        ].join(" "),
       );
       out(
         [
@@ -1463,7 +1463,7 @@ var jsPDF = (function (global) {
           f2((x - rx) * k),
           f2((pageHeight - y) * k),
           "c",
-        ].join(" ")
+        ].join(" "),
       );
       out(
         [
@@ -1474,7 +1474,7 @@ var jsPDF = (function (global) {
           f2(x * k),
           f2((pageHeight - (y + ry)) * k),
           "c",
-        ].join(" ")
+        ].join(" "),
       );
       out(
         [
@@ -1485,7 +1485,7 @@ var jsPDF = (function (global) {
           f2((x + rx) * k),
           f2((pageHeight - y) * k),
           "c",
-        ].join(" ")
+        ].join(" "),
       );
 
       if (style !== null) {
@@ -1829,7 +1829,7 @@ var jsPDF = (function (global) {
         throw new Error(
           "Line cap style of '" +
             style +
-            "' is not recognized. See or extend .CapJoinStyles property for valid styles"
+            "' is not recognized. See or extend .CapJoinStyles property for valid styles",
         );
       }
       lineCapID = id;
@@ -1854,7 +1854,7 @@ var jsPDF = (function (global) {
         throw new Error(
           "Line join style of '" +
             style +
-            "' is not recognized. See or extend .CapJoinStyles property for valid styles"
+            "' is not recognized. See or extend .CapJoinStyles property for valid styles",
         );
       }
       lineJoinID = id;
@@ -1906,8 +1906,8 @@ var jsPDF = (function (global) {
                 [eventname].concat(
                   typeof handler_and_args === "function"
                     ? [handler_and_args]
-                    : handler_and_args
-                )
+                    : handler_and_args,
+                ),
               );
             }
           })(events, jsPDF.API.events);
@@ -1969,7 +1969,7 @@ var jsPDF = (function (global) {
 })(
   (typeof self !== "undefined" && self) ||
     (typeof window !== "undefined" && window) ||
-    this
+    this,
 );
 /**
  * jsPDF addHTML PlugIn
@@ -2010,7 +2010,7 @@ var jsPDF = (function (global) {
       throw new Error(
         "You need either " +
           "https://github.com/niklasvh/html2canvas" +
-          " or https://github.com/cburgmer/rasterizeHTML.js"
+          " or https://github.com/cburgmer/rasterizeHTML.js",
       );
 
     if (typeof x !== "number") {
@@ -2056,7 +2056,7 @@ var jsPDF = (function (global) {
               0,
               0,
               canvas.width,
-              canvas.height
+              canvas.height,
             );
             var args = [
               canvas,
@@ -2109,7 +2109,7 @@ var jsPDF = (function (global) {
         },
         function (e) {
           callback(null, e);
-        }
+        },
       );
     }
 
@@ -2171,7 +2171,7 @@ var jsPDF = (function (global) {
             (img["pal"].length / 3 - 1) +
             " " +
             ("smask" in img ? objectNumber + 2 : objectNumber + 1) +
-            " 0 R]"
+            " 0 R]",
         );
       } else {
         out("/ColorSpace /" + img["cs"]);
@@ -2261,7 +2261,7 @@ var jsPDF = (function (global) {
         this.internal.events.subscribe("putResources", putResourcesCallback);
         this.internal.events.subscribe(
           "putXobjectDict",
-          putXObjectsDictCallback
+          putXObjectsDictCallback,
         );
       }
 
@@ -2366,7 +2366,7 @@ var jsPDF = (function (global) {
         }
       }
       return canvas.toDataURL(
-        ("" + format).toLowerCase() == "png" ? "image/png" : "image/jpeg"
+        ("" + format).toLowerCase() == "png" ? "image/png" : "image/jpeg",
       );
     },
     checkImagesForAlias = function (alias, images) {
@@ -2419,7 +2419,7 @@ var jsPDF = (function (global) {
         coord(x),
         vcoord(y + h),
         "cm /I" + info["i"],
-        "Do Q"
+        "Do Q",
       );
     };
 
@@ -2652,7 +2652,7 @@ var jsPDF = (function (global) {
     dp,
     trns,
     pal,
-    smask
+    smask,
   ) {
     var info = {
       alias: alias,
@@ -2683,7 +2683,7 @@ var jsPDF = (function (global) {
     h,
     alias,
     compression,
-    rotation
+    rotation,
   ) {
     "use strict";
 
@@ -2755,14 +2755,14 @@ var jsPDF = (function (global) {
               supported_image_types +
               ", not '" +
               format +
-              "'"
+              "'",
           );
 
         if (processMethodNotEnabled(format))
           throw new Error(
             "please ensure that the plugin for '" +
               format +
-              "' support is added"
+              "' support is added",
           );
 
         /**
@@ -2779,12 +2779,12 @@ var jsPDF = (function (global) {
           getImageIndex(images),
           alias,
           checkCompressValue(compression),
-          dataAsBinaryString
+          dataAsBinaryString,
         );
 
         if (!info)
           throw new Error(
-            "An unkwown error occurred whilst processing the image"
+            "An unkwown error occurred whilst processing the image",
           );
       }
     }
@@ -2879,7 +2879,7 @@ var jsPDF = (function (global) {
       }
 
       throw new Error(
-        "getJpegSizeFromBytes could not find the size of the image"
+        "getJpegSizeFromBytes could not find the size of the image",
       );
     },
     readBytes = function (data, offset) {
@@ -2891,7 +2891,7 @@ var jsPDF = (function (global) {
     index,
     alias,
     compression,
-    dataAsBinaryString
+    dataAsBinaryString,
   ) {
     "use strict";
     var colorSpace = this.color_spaces.DEVICE_RGB,
@@ -2909,7 +2909,7 @@ var jsPDF = (function (global) {
         bpc,
         filter,
         index,
-        alias
+        alias,
       );
     }
 
@@ -2929,7 +2929,7 @@ var jsPDF = (function (global) {
         bpc,
         filter,
         index,
-        alias
+        alias,
       );
     }
 
@@ -3111,7 +3111,7 @@ var jsPDF = (function (global) {
             this.text(
               currentLine,
               x + w - textSize - padding,
-              y + this.internal.getLineHeight() * (i + 1)
+              y + this.internal.getLineHeight() * (i + 1),
             );
           }
         }
@@ -3260,7 +3260,7 @@ var jsPDF = (function (global) {
 
         // get header width
         columnMinWidths.push(
-          this.getTextDimensions(headerPrompts[i] || header).w
+          this.getTextDimensions(headerPrompts[i] || header).w,
         );
         column = columnMatrix[header];
 
@@ -3281,7 +3281,7 @@ var jsPDF = (function (global) {
       var lineHeight = this.calculateLineHeight(
         headerNames,
         columnWidths,
-        headerPrompts.length ? headerPrompts : headerNames
+        headerPrompts.length ? headerPrompts : headerNames,
       );
 
       // Construct the header row
@@ -3318,7 +3318,7 @@ var jsPDF = (function (global) {
           lineHeight,
           model[header],
           i + 2,
-          header.align
+          header.align,
         );
       }
     }
@@ -3340,7 +3340,7 @@ var jsPDF = (function (global) {
       header = headerNames[j];
       model[header] = this.splitTextToSize(
         String(model[header]),
-        columnWidths[header] - padding
+        columnWidths[header] - padding,
       );
       var h = this.internal.getLineHeight() * model[header].length + padding;
       if (h > lineHeight) lineHeight = h;
@@ -3377,7 +3377,7 @@ var jsPDF = (function (global) {
         position[1],
         position[2],
         position[3],
-        -1
+        -1,
       );
     }
     this.setFontStyle("bold");
@@ -3691,7 +3691,7 @@ var jsPDF = (function (global) {
       while (j < tableRow.cells.length) {
         rowData[headers[j].name] = tableRow.cells[j].textContent.replace(
           /\r?\n/g,
-          ""
+          "",
         );
         j++;
       }
@@ -3749,7 +3749,7 @@ var jsPDF = (function (global) {
               renderer.pdf.margins_doc.top = renderer.y + 10;
               renderer.y += 10;
             },
-            false
+            false,
           );
         }
 
@@ -3813,7 +3813,7 @@ var jsPDF = (function (global) {
               imageX,
               renderer.y + additionalSpaceTop,
               cn.width,
-              cn.height
+              cn.height,
             );
             cached_image = undefined;
             //if the float prop is specified we have to float the text around the image
@@ -3853,8 +3853,8 @@ var jsPDF = (function (global) {
                     cn.height +
                     additionalSpaceTop +
                     additionalSpaceBottom,
-                  cn.width
-                )
+                  cn.width,
+                ),
               );
               //reset floating by clear:both divs
               //just set cursorY after the floating element
@@ -3876,8 +3876,8 @@ var jsPDF = (function (global) {
                 }.bind(
                   this,
                   renderer.y + cn.height,
-                  renderer.pdf.internal.getNumberOfPages()
-                )
+                  renderer.pdf.internal.getNumberOfPages(),
+                ),
               );
 
               //if floating is set we decrease the available width by the image width
@@ -3906,7 +3906,7 @@ var jsPDF = (function (global) {
                 autoSize: false,
                 printHeaders: true,
                 margins: renderer.pdf.margins_doc,
-              }
+              },
             );
             renderer.y =
               renderer.pdf.lastCellPos.y + renderer.pdf.lastCellPos.h + 20;
@@ -4070,9 +4070,9 @@ var jsPDF = (function (global) {
             "htmlRenderingFinished",
             renderer.pdf.putTotalPages.bind(
               renderer.pdf,
-              "###jsPDFVarTotalPages###"
+              "###jsPDFVarTotalPages###",
             ),
-            true
+            true,
           );
         }
       }
@@ -4138,9 +4138,9 @@ var jsPDF = (function (global) {
         if (typeof callback === "function") callback(out);
         else if (found_images)
           console.error(
-            "jsPDF Warning: rendering issues? provide a callback to fromHTML!"
+            "jsPDF Warning: rendering issues? provide a callback to fromHTML!",
           );
-      }
+      },
     );
     return out || { x: r.x, y: r.y };
   };
@@ -4234,7 +4234,7 @@ var jsPDF = (function (global) {
           fragmentChopped = this.pdf.splitTextToSize(
             fragment,
             maxLineLength,
-            fragmentSpecificMetrics
+            fragmentSpecificMetrics,
           );
           line.push([fragmentChopped.shift(), style]);
           while (fragmentChopped.length) {
@@ -4263,7 +4263,7 @@ var jsPDF = (function (global) {
         var length =
           (this.pdf.getStringUnitWidth(
             lines[i][0][0],
-            fragmentSpecificMetrics
+            fragmentSpecificMetrics,
           ) *
             fragmentSpecificMetrics.fontSize) /
           k;
@@ -4310,18 +4310,18 @@ var jsPDF = (function (global) {
         "BT 0 g",
         this.pdf.internal.getCoordinateString(this.x),
         this.pdf.internal.getVerticalCoordinateString(this.y),
-        "Td"
+        "Td",
       );
       //move cursor by one line on new page
       maxLineHeight = Math.max(
         maxLineHeight,
         style["line-height"],
-        style["font-size"]
+        style["font-size"],
       );
       this.pdf.internal.write(
         0,
         (-1 * defaultFontSize * maxLineHeight).toFixed(2),
-        "Td"
+        "Td",
       );
     }
 
@@ -4336,7 +4336,7 @@ var jsPDF = (function (global) {
       "/" + font.id,
       (defaultFontSize * style["font-size"]).toFixed(2),
       "Tf",
-      "(" + this.pdf.internal.pdfEscape(text) + ") Tj"
+      "(" + this.pdf.internal.pdfEscape(text) + ") Tj",
     );
 
     //set the word spacing back to neutral => 0
@@ -4382,7 +4382,7 @@ var jsPDF = (function (global) {
       (Math.max(
         (blockstyle["margin-top"] || 0) -
           (priorblockstype["margin-bottom"] || 0),
-        0
+        0,
       ) +
         (blockstyle["padding-top"] || 0)) *
       fontToUnitRatio;
@@ -4399,7 +4399,7 @@ var jsPDF = (function (global) {
       "BT 0 g",
       this.pdf.internal.getCoordinateString(this.x),
       this.pdf.internal.getVerticalCoordinateString(this.y),
-      "Td"
+      "Td",
     );
 
     //stores the current indent of cursor position
@@ -4415,7 +4415,7 @@ var jsPDF = (function (global) {
           maxLineHeight = Math.max(
             maxLineHeight,
             line[i][1]["line-height"],
-            line[i][1]["font-size"]
+            line[i][1]["font-size"],
           );
           fontSize = line[i][1]["font-size"] * 7;
         }
@@ -4429,7 +4429,7 @@ var jsPDF = (function (global) {
         line[0][1]["margin-left"] > 0
       ) {
         wantedIndent = this.pdf.internal.getCoordinateString(
-          line[0][1]["margin-left"]
+          line[0][1]["margin-left"],
         );
         indentMove = wantedIndent - currentIndent;
         currentIndent = wantedIndent;
@@ -4467,7 +4467,7 @@ var jsPDF = (function (global) {
         //split lines again due to possible coordinate changes
         lines = this.splitFragmentsIntoLines(
           PurgeWhiteSpace(localFragments),
-          localStyles
+          localStyles,
         );
         //reposition the current cursor
         out("ET", "Q");
@@ -4476,7 +4476,7 @@ var jsPDF = (function (global) {
           "BT 0 g",
           this.pdf.internal.getCoordinateString(this.x),
           this.pdf.internal.getVerticalCoordinateString(this.y),
-          "Td"
+          "Td",
         );
       }
     }
@@ -4578,7 +4578,7 @@ var jsPDF = (function (global) {
       isNaN(x) ? 4 : x,
       isNaN(y) ? 4 : y,
       settings,
-      callback
+      callback,
     );
   };
 })(jsPDF.API);
@@ -4618,7 +4618,7 @@ var jsPDF = (function (global) {
       jsNamesObj = this.internal.newObject();
       this.internal.write(
         "<< /Names [(EmbeddedJS) " + (jsNamesObj + 1) + " 0 R] >>",
-        "endobj"
+        "endobj",
       );
       jsJsObj = this.internal.newObject();
       this.internal.write("<< /S /JavaScript /JS (", text, ") >>", "endobj");
@@ -4734,7 +4734,7 @@ var jsPDF = (function (global) {
         bytes,
         lineLength,
         colorsPerPixel,
-        filter_method
+        filter_method,
       );
 
       var header = new Uint8Array(createZlibHeader(level));
@@ -4801,7 +4801,7 @@ var jsPDF = (function (global) {
       bytes,
       lineLength,
       colorsPerPixel,
-      filter_method
+      filter_method,
     ) {
       var lines = bytes.length / lineLength,
         result = new Uint8Array(bytes.length + lines),
@@ -4984,7 +4984,7 @@ var jsPDF = (function (global) {
     imageIndex,
     alias,
     compression,
-    dataAsBinaryString
+    dataAsBinaryString,
   ) {
     "use strict";
 
@@ -5059,7 +5059,7 @@ var jsPDF = (function (global) {
           var pixels = new Uint32Array(img.decodePixels().buffer),
             len = pixels.length,
             imgData = new Uint8Array(
-              len * (32 / img.pixelBitlength) * img.colors
+              len * (32 / img.pixelBitlength) * img.colors,
             ),
             alphaData = new Uint8Array(len * (32 / img.pixelBitlength)),
             hasColors = img.colors > 1,
@@ -5091,7 +5091,7 @@ var jsPDF = (function (global) {
             imgData,
             img.width * img.colors,
             img.colors,
-            compression
+            compression,
           );
           smask = compressBytes(alphaData, img.width, 1, compression);
         } else {
@@ -5179,7 +5179,7 @@ var jsPDF = (function (global) {
         dp,
         trns,
         pal,
-        smask
+        smask,
       );
     }
 
@@ -5254,7 +5254,7 @@ Supports:
 
       InjectCSS(
         ".jsPDF_sillysvg_iframe {display:none;position:absolute;}",
-        document
+        document,
       );
 
       frame.name = frameID;
@@ -5355,7 +5355,7 @@ Supports:
           linesargs[2], // lines
           linesargs[0], // starting x
           linesargs[1], // starting y
-          scale
+          scale,
         );
       }
     }
@@ -5434,7 +5434,7 @@ cell ocupied by the width of the char in that position.
       output.push(
         (widths[char_code] || default_char_width) / widthsFractionOf +
           ((kerning[char_code] && kerning[char_code][prior_char_code]) || 0) /
-            kerningFractionOf
+            kerningFractionOf,
       );
       prior_char_code = char_code;
     }
@@ -5542,7 +5542,7 @@ returns array of lines
           wrds = wrds.concat(
             wrd.map(function (wrd, idx) {
               return (idx && wrd.length ? "\n" : "") + wrd;
-            })
+            }),
           );
         } else {
           wrds.push(wrd[0]);
@@ -5574,7 +5574,7 @@ returns array of lines
             word,
             widths_array,
             maxlen - (line_length + separator_length),
-            maxlen
+            maxlen,
           );
           // first line we add to existing line object
           line.push(tmp.shift()); // it's ok to have extra space indicator there
@@ -5585,7 +5585,7 @@ returns array of lines
             lines.push([tmp.shift()]); // single fragment occupies whole line
           }
           current_word_length = getArraySum(
-            widths_array.slice(word.length - line[0].length)
+            widths_array.slice(word.length - line[0].length),
           );
         } else {
           // just put it on a new line
@@ -5702,7 +5702,7 @@ table or other default width is not available.
       output = [];
     for (i = 0, l = paragraphs.length; i < l; i++) {
       output = output.concat(
-        splitParagraphIntoLines(paragraphs[i], fontUnit_maxLen, newOptions)
+        splitParagraphIntoLines(paragraphs[i], fontUnit_maxLen, newOptions),
       );
     }
 
@@ -5972,7 +5972,7 @@ Uncompresses data compressed into custom, base16-like format.
   var encodingBlock = {
       codePages: ["WinAnsiEncoding"],
       WinAnsiEncoding: uncompress(
-        "{19m8n201n9q201o9r201s9l201t9m201u8m201w9n201x9o201y8o202k8q202l8r202m9p202q8p20aw8k203k8t203t8v203u9v2cq8s212m9t15m8w15n9w2dw9s16k8u16l9u17s9z17x8y17y9y}"
+        "{19m8n201n9q201o9r201s9l201t9m201u8m201w9n201x9o201y8o202k8q202l8r202m9p202q8p20aw8k203k8t203t8v203u9v2cq8s212m9t15m8w15n9w2dw9s16k8u16l9u17s9z17x8y17y9y}",
       ),
     },
     encodings = {
@@ -6020,38 +6020,38 @@ or obligation to support the use of the AFM files.
         // key 'fof' represents the "fontMetricsFractionOf" value
 
         "Courier-Oblique": uncompress(
-          "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"
+          "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}",
         ),
         "Times-BoldItalic": uncompress(
-          "{'widths'{k3o2q4ycx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2r202m2n2n3m2o3m2p5n202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5n4l4m4m4m4n4m4o4s4p4m4q4m4r4s4s4y4t2r4u3m4v4m4w3x4x5t4y4s4z4s5k3x5l4s5m4m5n3r5o3x5p4s5q4m5r5t5s4m5t3x5u3x5v2l5w1w5x2l5y3t5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q2l6r3m6s3r6t1w6u1w6v3m6w1w6x4y6y3r6z3m7k3m7l3m7m2r7n2r7o1w7p3r7q2w7r4m7s3m7t2w7u2r7v2n7w1q7x2n7y3t202l3mcl4mal2ram3man3mao3map3mar3mas2lat4uau1uav3maw3way4uaz2lbk2sbl3t'fof'6obo2lbp3tbq3mbr1tbs2lbu1ybv3mbz3mck4m202k3mcm4mcn4mco4mcp4mcq5ycr4mcs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz2w203k6o212m6o2dw2l2cq2l3t3m3u2l17s3x19m3m}'kerning'{cl{4qu5kt5qt5rs17ss5ts}201s{201ss}201t{cks4lscmscnscoscpscls2wu2yu201ts}201x{2wu2yu}2k{201ts}2w{4qx5kx5ou5qx5rs17su5tu}2x{17su5tu5ou}2y{4qx5kx5ou5qx5rs17ss5ts}'fof'-6ofn{17sw5tw5ou5qw5rs}7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qs}3v{17su5tu5os5qs}7p{17su5tu}ck{4qu5kt5qt5rs17ss5ts}4l{4qu5kt5qt5rs17ss5ts}cm{4qu5kt5qt5rs17ss5ts}cn{4qu5kt5qt5rs17ss5ts}co{4qu5kt5qt5rs17ss5ts}cp{4qu5kt5qt5rs17ss5ts}6l{4qu5ou5qw5rt17su5tu}5q{ckuclucmucnucoucpu4lu}5r{ckuclucmucnucoucpu4lu}7q{cksclscmscnscoscps4ls}6p{4qu5ou5qw5rt17sw5tw}ek{4qu5ou5qw5rt17su5tu}el{4qu5ou5qw5rt17su5tu}em{4qu5ou5qw5rt17su5tu}en{4qu5ou5qw5rt17su5tu}eo{4qu5ou5qw5rt17su5tu}ep{4qu5ou5qw5rt17su5tu}es{17ss5ts5qs4qu}et{4qu5ou5qw5rt17sw5tw}eu{4qu5ou5qw5rt17ss5ts}ev{17ss5ts5qs4qu}6z{17sw5tw5ou5qw5rs}fm{17sw5tw5ou5qw5rs}7n{201ts}fo{17sw5tw5ou5qw5rs}fp{17sw5tw5ou5qw5rs}fq{17sw5tw5ou5qw5rs}7r{cksclscmscnscoscps4ls}fs{17sw5tw5ou5qw5rs}ft{17su5tu}fu{17su5tu}fv{17su5tu}fw{17su5tu}fz{cksclscmscnscoscps4ls}}}"
+          "{'widths'{k3o2q4ycx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2r202m2n2n3m2o3m2p5n202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5n4l4m4m4m4n4m4o4s4p4m4q4m4r4s4s4y4t2r4u3m4v4m4w3x4x5t4y4s4z4s5k3x5l4s5m4m5n3r5o3x5p4s5q4m5r5t5s4m5t3x5u3x5v2l5w1w5x2l5y3t5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q2l6r3m6s3r6t1w6u1w6v3m6w1w6x4y6y3r6z3m7k3m7l3m7m2r7n2r7o1w7p3r7q2w7r4m7s3m7t2w7u2r7v2n7w1q7x2n7y3t202l3mcl4mal2ram3man3mao3map3mar3mas2lat4uau1uav3maw3way4uaz2lbk2sbl3t'fof'6obo2lbp3tbq3mbr1tbs2lbu1ybv3mbz3mck4m202k3mcm4mcn4mco4mcp4mcq5ycr4mcs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz2w203k6o212m6o2dw2l2cq2l3t3m3u2l17s3x19m3m}'kerning'{cl{4qu5kt5qt5rs17ss5ts}201s{201ss}201t{cks4lscmscnscoscpscls2wu2yu201ts}201x{2wu2yu}2k{201ts}2w{4qx5kx5ou5qx5rs17su5tu}2x{17su5tu5ou}2y{4qx5kx5ou5qx5rs17ss5ts}'fof'-6ofn{17sw5tw5ou5qw5rs}7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qs}3v{17su5tu5os5qs}7p{17su5tu}ck{4qu5kt5qt5rs17ss5ts}4l{4qu5kt5qt5rs17ss5ts}cm{4qu5kt5qt5rs17ss5ts}cn{4qu5kt5qt5rs17ss5ts}co{4qu5kt5qt5rs17ss5ts}cp{4qu5kt5qt5rs17ss5ts}6l{4qu5ou5qw5rt17su5tu}5q{ckuclucmucnucoucpu4lu}5r{ckuclucmucnucoucpu4lu}7q{cksclscmscnscoscps4ls}6p{4qu5ou5qw5rt17sw5tw}ek{4qu5ou5qw5rt17su5tu}el{4qu5ou5qw5rt17su5tu}em{4qu5ou5qw5rt17su5tu}en{4qu5ou5qw5rt17su5tu}eo{4qu5ou5qw5rt17su5tu}ep{4qu5ou5qw5rt17su5tu}es{17ss5ts5qs4qu}et{4qu5ou5qw5rt17sw5tw}eu{4qu5ou5qw5rt17ss5ts}ev{17ss5ts5qs4qu}6z{17sw5tw5ou5qw5rs}fm{17sw5tw5ou5qw5rs}7n{201ts}fo{17sw5tw5ou5qw5rs}fp{17sw5tw5ou5qw5rs}fq{17sw5tw5ou5qw5rs}7r{cksclscmscnscoscps4ls}fs{17sw5tw5ou5qw5rs}ft{17su5tu}fu{17su5tu}fv{17su5tu}fw{17su5tu}fz{cksclscmscnscoscps4ls}}}",
         ),
         "Helvetica-Bold": uncompress(
-          "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}"
+          "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}",
         ),
         Courier: uncompress("{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"),
         "Courier-BoldOblique": uncompress(
-          "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"
+          "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}",
         ),
         "Times-Bold": uncompress(
-          "{'widths'{k3q2q5ncx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2l202m2n2n3m2o3m2p6o202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5x4l4s4m4m4n4s4o4s4p4m4q3x4r4y4s4y4t2r4u3m4v4y4w4m4x5y4y4s4z4y5k3x5l4y5m4s5n3r5o4m5p4s5q4s5r6o5s4s5t4s5u4m5v2l5w1w5x2l5y3u5z3m6k2l6l3m6m3r6n2w6o3r6p2w6q2l6r3m6s3r6t1w6u2l6v3r6w1w6x5n6y3r6z3m7k3r7l3r7m2w7n2r7o2l7p3r7q3m7r4s7s3m7t3m7u2w7v2r7w1q7x2r7y3o202l3mcl4sal2lam3man3mao3map3mar3mas2lat4uau1yav3maw3tay4uaz2lbk2sbl3t'fof'6obo2lbp3rbr1tbs2lbu2lbv3mbz3mck4s202k3mcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3rek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3m3u2l17s4s19m3m}'kerning'{cl{4qt5ks5ot5qy5rw17sv5tv}201t{cks4lscmscnscoscpscls4wv}2k{201ts}2w{4qu5ku7mu5os5qx5ru17su5tu}2x{17su5tu5ou5qs}2y{4qv5kv7mu5ot5qz5ru17su5tu}'fof'-6o7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qu}3v{17su5tu5os5qu}fu{17su5tu5ou5qu}7p{17su5tu5ou5qu}ck{4qt5ks5ot5qy5rw17sv5tv}4l{4qt5ks5ot5qy5rw17sv5tv}cm{4qt5ks5ot5qy5rw17sv5tv}cn{4qt5ks5ot5qy5rw17sv5tv}co{4qt5ks5ot5qy5rw17sv5tv}cp{4qt5ks5ot5qy5rw17sv5tv}6l{17st5tt5ou5qu}17s{ckuclucmucnucoucpu4lu4wu}5o{ckuclucmucnucoucpu4lu4wu}5q{ckzclzcmzcnzcozcpz4lz4wu}5r{ckxclxcmxcnxcoxcpx4lx4wu}5t{ckuclucmucnucoucpu4lu4wu}7q{ckuclucmucnucoucpu4lu}6p{17sw5tw5ou5qu}ek{17st5tt5qu}el{17st5tt5ou5qu}em{17st5tt5qu}en{17st5tt5qu}eo{17st5tt5qu}ep{17st5tt5ou5qu}es{17ss5ts5qu}et{17sw5tw5ou5qu}eu{17sw5tw5ou5qu}ev{17ss5ts5qu}6z{17sw5tw5ou5qu5rs}fm{17sw5tw5ou5qu5rs}fn{17sw5tw5ou5qu5rs}fo{17sw5tw5ou5qu5rs}fp{17sw5tw5ou5qu5rs}fq{17sw5tw5ou5qu5rs}7r{cktcltcmtcntcotcpt4lt5os}fs{17sw5tw5ou5qu5rs}ft{17su5tu5ou5qu}7m{5os}fv{17su5tu5ou5qu}fw{17su5tu5ou5qu}fz{cksclscmscnscoscps4ls}}}"
+          "{'widths'{k3q2q5ncx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2l202m2n2n3m2o3m2p6o202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5x4l4s4m4m4n4s4o4s4p4m4q3x4r4y4s4y4t2r4u3m4v4y4w4m4x5y4y4s4z4y5k3x5l4y5m4s5n3r5o4m5p4s5q4s5r6o5s4s5t4s5u4m5v2l5w1w5x2l5y3u5z3m6k2l6l3m6m3r6n2w6o3r6p2w6q2l6r3m6s3r6t1w6u2l6v3r6w1w6x5n6y3r6z3m7k3r7l3r7m2w7n2r7o2l7p3r7q3m7r4s7s3m7t3m7u2w7v2r7w1q7x2r7y3o202l3mcl4sal2lam3man3mao3map3mar3mas2lat4uau1yav3maw3tay4uaz2lbk2sbl3t'fof'6obo2lbp3rbr1tbs2lbu2lbv3mbz3mck4s202k3mcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3rek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3m3u2l17s4s19m3m}'kerning'{cl{4qt5ks5ot5qy5rw17sv5tv}201t{cks4lscmscnscoscpscls4wv}2k{201ts}2w{4qu5ku7mu5os5qx5ru17su5tu}2x{17su5tu5ou5qs}2y{4qv5kv7mu5ot5qz5ru17su5tu}'fof'-6o7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qu}3v{17su5tu5os5qu}fu{17su5tu5ou5qu}7p{17su5tu5ou5qu}ck{4qt5ks5ot5qy5rw17sv5tv}4l{4qt5ks5ot5qy5rw17sv5tv}cm{4qt5ks5ot5qy5rw17sv5tv}cn{4qt5ks5ot5qy5rw17sv5tv}co{4qt5ks5ot5qy5rw17sv5tv}cp{4qt5ks5ot5qy5rw17sv5tv}6l{17st5tt5ou5qu}17s{ckuclucmucnucoucpu4lu4wu}5o{ckuclucmucnucoucpu4lu4wu}5q{ckzclzcmzcnzcozcpz4lz4wu}5r{ckxclxcmxcnxcoxcpx4lx4wu}5t{ckuclucmucnucoucpu4lu4wu}7q{ckuclucmucnucoucpu4lu}6p{17sw5tw5ou5qu}ek{17st5tt5qu}el{17st5tt5ou5qu}em{17st5tt5qu}en{17st5tt5qu}eo{17st5tt5qu}ep{17st5tt5ou5qu}es{17ss5ts5qu}et{17sw5tw5ou5qu}eu{17sw5tw5ou5qu}ev{17ss5ts5qu}6z{17sw5tw5ou5qu5rs}fm{17sw5tw5ou5qu5rs}fn{17sw5tw5ou5qu5rs}fo{17sw5tw5ou5qu5rs}fp{17sw5tw5ou5qu5rs}fq{17sw5tw5ou5qu5rs}7r{cktcltcmtcntcotcpt4lt5os}fs{17sw5tw5ou5qu5rs}ft{17su5tu5ou5qu}7m{5os}fv{17su5tu5ou5qu}fw{17su5tu5ou5qu}fz{cksclscmscnscoscps4ls}}}",
         ),
         //, 'Symbol': uncompress("{'widths'{k3uaw4r19m3m2k1t2l2l202m2y2n3m2p5n202q6o3k3m2s2l2t2l2v3r2w1t3m3m2y1t2z1wbk2sbl3r'fof'6o3n3m3o3m3p3m3q3m3r3m3s3m3t3m3u1w3v1w3w3r3x3r3y3r3z2wbp3t3l3m5v2l5x2l5z3m2q4yfr3r7v3k7w1o7x3k}'kerning'{'fof'-6o}}")
         Helvetica: uncompress(
-          "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}"
+          "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}",
         ),
         "Helvetica-BoldOblique": uncompress(
-          "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}"
+          "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}",
         ),
         //, 'ZapfDingbats': uncompress("{'widths'{k4u2k1w'fof'6o}'kerning'{'fof'-6o}}")
         "Courier-Bold": uncompress("{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"),
         "Times-Italic": uncompress(
-          "{'widths'{k3n2q4ycx2l201n3m201o5t201s2l201t2l201u2l201w3r201x3r201y3r2k1t2l2l202m2n2n3m2o3m2p5n202q5t2r1p2s2l2t2l2u3m2v4n2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w4n3x4n3y4n3z3m4k5w4l3x4m3x4n4m4o4s4p3x4q3x4r4s4s4s4t2l4u2w4v4m4w3r4x5n4y4m4z4s5k3x5l4s5m3x5n3m5o3r5p4s5q3x5r5n5s3x5t3r5u3r5v2r5w1w5x2r5y2u5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q1w6r3m6s3m6t1w6u1w6v2w6w1w6x4s6y3m6z3m7k3m7l3m7m2r7n2r7o1w7p3m7q2w7r4m7s2w7t2w7u2r7v2s7w1v7x2s7y3q202l3mcl3xal2ram3man3mao3map3mar3mas2lat4wau1vav3maw4nay4waz2lbk2sbl4n'fof'6obo2lbp3mbq3obr1tbs2lbu1zbv3mbz3mck3x202k3mcm3xcn3xco3xcp3xcq5tcr4mcs3xct3xcu3xcv3xcw2l2m2ucy2lcz2ldl4mdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr4nfs3mft3mfu3mfv3mfw3mfz2w203k6o212m6m2dw2l2cq2l3t3m3u2l17s3r19m3m}'kerning'{cl{5kt4qw}201s{201sw}201t{201tw2wy2yy6q-t}201x{2wy2yy}2k{201tw}2w{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}2x{17ss5ts5os}2y{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}'fof'-6o6t{17ss5ts5qs}7t{5os}3v{5qs}7p{17su5tu5qs}ck{5kt4qw}4l{5kt4qw}cm{5kt4qw}cn{5kt4qw}co{5kt4qw}cp{5kt4qw}6l{4qs5ks5ou5qw5ru17su5tu}17s{2ks}5q{ckvclvcmvcnvcovcpv4lv}5r{ckuclucmucnucoucpu4lu}5t{2ks}6p{4qs5ks5ou5qw5ru17su5tu}ek{4qs5ks5ou5qw5ru17su5tu}el{4qs5ks5ou5qw5ru17su5tu}em{4qs5ks5ou5qw5ru17su5tu}en{4qs5ks5ou5qw5ru17su5tu}eo{4qs5ks5ou5qw5ru17su5tu}ep{4qs5ks5ou5qw5ru17su5tu}es{5ks5qs4qs}et{4qs5ks5ou5qw5ru17su5tu}eu{4qs5ks5qw5ru17su5tu}ev{5ks5qs4qs}ex{17ss5ts5qs}6z{4qv5ks5ou5qw5ru17su5tu}fm{4qv5ks5ou5qw5ru17su5tu}fn{4qv5ks5ou5qw5ru17su5tu}fo{4qv5ks5ou5qw5ru17su5tu}fp{4qv5ks5ou5qw5ru17su5tu}fq{4qv5ks5ou5qw5ru17su5tu}7r{5os}fs{4qv5ks5ou5qw5ru17su5tu}ft{17su5tu5qs}fu{17su5tu5qs}fv{17su5tu5qs}fw{17su5tu5qs}}}"
+          "{'widths'{k3n2q4ycx2l201n3m201o5t201s2l201t2l201u2l201w3r201x3r201y3r2k1t2l2l202m2n2n3m2o3m2p5n202q5t2r1p2s2l2t2l2u3m2v4n2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w4n3x4n3y4n3z3m4k5w4l3x4m3x4n4m4o4s4p3x4q3x4r4s4s4s4t2l4u2w4v4m4w3r4x5n4y4m4z4s5k3x5l4s5m3x5n3m5o3r5p4s5q3x5r5n5s3x5t3r5u3r5v2r5w1w5x2r5y2u5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q1w6r3m6s3m6t1w6u1w6v2w6w1w6x4s6y3m6z3m7k3m7l3m7m2r7n2r7o1w7p3m7q2w7r4m7s2w7t2w7u2r7v2s7w1v7x2s7y3q202l3mcl3xal2ram3man3mao3map3mar3mas2lat4wau1vav3maw4nay4waz2lbk2sbl4n'fof'6obo2lbp3mbq3obr1tbs2lbu1zbv3mbz3mck3x202k3mcm3xcn3xco3xcp3xcq5tcr4mcs3xct3xcu3xcv3xcw2l2m2ucy2lcz2ldl4mdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr4nfs3mft3mfu3mfv3mfw3mfz2w203k6o212m6m2dw2l2cq2l3t3m3u2l17s3r19m3m}'kerning'{cl{5kt4qw}201s{201sw}201t{201tw2wy2yy6q-t}201x{2wy2yy}2k{201tw}2w{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}2x{17ss5ts5os}2y{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}'fof'-6o6t{17ss5ts5qs}7t{5os}3v{5qs}7p{17su5tu5qs}ck{5kt4qw}4l{5kt4qw}cm{5kt4qw}cn{5kt4qw}co{5kt4qw}cp{5kt4qw}6l{4qs5ks5ou5qw5ru17su5tu}17s{2ks}5q{ckvclvcmvcnvcovcpv4lv}5r{ckuclucmucnucoucpu4lu}5t{2ks}6p{4qs5ks5ou5qw5ru17su5tu}ek{4qs5ks5ou5qw5ru17su5tu}el{4qs5ks5ou5qw5ru17su5tu}em{4qs5ks5ou5qw5ru17su5tu}en{4qs5ks5ou5qw5ru17su5tu}eo{4qs5ks5ou5qw5ru17su5tu}ep{4qs5ks5ou5qw5ru17su5tu}es{5ks5qs4qs}et{4qs5ks5ou5qw5ru17su5tu}eu{4qs5ks5qw5ru17su5tu}ev{5ks5qs4qs}ex{17ss5ts5qs}6z{4qv5ks5ou5qw5ru17su5tu}fm{4qv5ks5ou5qw5ru17su5tu}fn{4qv5ks5ou5qw5ru17su5tu}fo{4qv5ks5ou5qw5ru17su5tu}fp{4qv5ks5ou5qw5ru17su5tu}fq{4qv5ks5ou5qw5ru17su5tu}7r{5os}fs{4qv5ks5ou5qw5ru17su5tu}ft{17su5tu5qs}fu{17su5tu5qs}fv{17su5tu5qs}fw{17su5tu5qs}}}",
         ),
         "Times-Roman": uncompress(
-          "{'widths'{k3n2q4ycx2l201n3m201o6o201s2l201t2l201u2l201w2w201x2w201y2w2k1t2l2l202m2n2n3m2o3m2p5n202q6o2r1m2s2l2t2l2u3m2v3s2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v1w3w3s3x3s3y3s3z2w4k5w4l4s4m4m4n4m4o4s4p3x4q3r4r4s4s4s4t2l4u2r4v4s4w3x4x5t4y4s4z4s5k3r5l4s5m4m5n3r5o3x5p4s5q4s5r5y5s4s5t4s5u3x5v2l5w1w5x2l5y2z5z3m6k2l6l2w6m3m6n2w6o3m6p2w6q2l6r3m6s3m6t1w6u1w6v3m6w1w6x4y6y3m6z3m7k3m7l3m7m2l7n2r7o1w7p3m7q3m7r4s7s3m7t3m7u2w7v3k7w1o7x3k7y3q202l3mcl4sal2lam3man3mao3map3mar3mas2lat4wau1vav3maw3say4waz2lbk2sbl3s'fof'6obo2lbp3mbq2xbr1tbs2lbu1zbv3mbz2wck4s202k3mcm4scn4sco4scp4scq5tcr4mcs3xct3xcu3xcv3xcw2l2m2tcy2lcz2ldl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek2wel2wem2wen2weo2wep2weq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr3sfs3mft3mfu3mfv3mfw3mfz3m203k6o212m6m2dw2l2cq2l3t3m3u1w17s4s19m3m}'kerning'{cl{4qs5ku17sw5ou5qy5rw201ss5tw201ws}201s{201ss}201t{ckw4lwcmwcnwcowcpwclw4wu201ts}2k{201ts}2w{4qs5kw5os5qx5ru17sx5tx}2x{17sw5tw5ou5qu}2y{4qs5kw5os5qx5ru17sx5tx}'fof'-6o7t{ckuclucmucnucoucpu4lu5os5rs}3u{17su5tu5qs}3v{17su5tu5qs}7p{17sw5tw5qs}ck{4qs5ku17sw5ou5qy5rw201ss5tw201ws}4l{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cm{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cn{4qs5ku17sw5ou5qy5rw201ss5tw201ws}co{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cp{4qs5ku17sw5ou5qy5rw201ss5tw201ws}6l{17su5tu5os5qw5rs}17s{2ktclvcmvcnvcovcpv4lv4wuckv}5o{ckwclwcmwcnwcowcpw4lw4wu}5q{ckyclycmycnycoycpy4ly4wu5ms}5r{cktcltcmtcntcotcpt4lt4ws}5t{2ktclvcmvcnvcovcpv4lv4wuckv}7q{cksclscmscnscoscps4ls}6p{17su5tu5qw5rs}ek{5qs5rs}el{17su5tu5os5qw5rs}em{17su5tu5os5qs5rs}en{17su5qs5rs}eo{5qs5rs}ep{17su5tu5os5qw5rs}es{5qs}et{17su5tu5qw5rs}eu{17su5tu5qs5rs}ev{5qs}6z{17sv5tv5os5qx5rs}fm{5os5qt5rs}fn{17sv5tv5os5qx5rs}fo{17sv5tv5os5qx5rs}fp{5os5qt5rs}fq{5os5qt5rs}7r{ckuclucmucnucoucpu4lu5os}fs{17sv5tv5os5qx5rs}ft{17ss5ts5qs}fu{17sw5tw5qs}fv{17sw5tw5qs}fw{17ss5ts5qs}fz{ckuclucmucnucoucpu4lu5os5rs}}}"
+          "{'widths'{k3n2q4ycx2l201n3m201o6o201s2l201t2l201u2l201w2w201x2w201y2w2k1t2l2l202m2n2n3m2o3m2p5n202q6o2r1m2s2l2t2l2u3m2v3s2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v1w3w3s3x3s3y3s3z2w4k5w4l4s4m4m4n4m4o4s4p3x4q3r4r4s4s4s4t2l4u2r4v4s4w3x4x5t4y4s4z4s5k3r5l4s5m4m5n3r5o3x5p4s5q4s5r5y5s4s5t4s5u3x5v2l5w1w5x2l5y2z5z3m6k2l6l2w6m3m6n2w6o3m6p2w6q2l6r3m6s3m6t1w6u1w6v3m6w1w6x4y6y3m6z3m7k3m7l3m7m2l7n2r7o1w7p3m7q3m7r4s7s3m7t3m7u2w7v3k7w1o7x3k7y3q202l3mcl4sal2lam3man3mao3map3mar3mas2lat4wau1vav3maw3say4waz2lbk2sbl3s'fof'6obo2lbp3mbq2xbr1tbs2lbu1zbv3mbz2wck4s202k3mcm4scn4sco4scp4scq5tcr4mcs3xct3xcu3xcv3xcw2l2m2tcy2lcz2ldl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek2wel2wem2wen2weo2wep2weq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr3sfs3mft3mfu3mfv3mfw3mfz3m203k6o212m6m2dw2l2cq2l3t3m3u1w17s4s19m3m}'kerning'{cl{4qs5ku17sw5ou5qy5rw201ss5tw201ws}201s{201ss}201t{ckw4lwcmwcnwcowcpwclw4wu201ts}2k{201ts}2w{4qs5kw5os5qx5ru17sx5tx}2x{17sw5tw5ou5qu}2y{4qs5kw5os5qx5ru17sx5tx}'fof'-6o7t{ckuclucmucnucoucpu4lu5os5rs}3u{17su5tu5qs}3v{17su5tu5qs}7p{17sw5tw5qs}ck{4qs5ku17sw5ou5qy5rw201ss5tw201ws}4l{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cm{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cn{4qs5ku17sw5ou5qy5rw201ss5tw201ws}co{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cp{4qs5ku17sw5ou5qy5rw201ss5tw201ws}6l{17su5tu5os5qw5rs}17s{2ktclvcmvcnvcovcpv4lv4wuckv}5o{ckwclwcmwcnwcowcpw4lw4wu}5q{ckyclycmycnycoycpy4ly4wu5ms}5r{cktcltcmtcntcotcpt4lt4ws}5t{2ktclvcmvcnvcovcpv4lv4wuckv}7q{cksclscmscnscoscps4ls}6p{17su5tu5qw5rs}ek{5qs5rs}el{17su5tu5os5qw5rs}em{17su5tu5os5qs5rs}en{17su5qs5rs}eo{5qs5rs}ep{17su5tu5os5qw5rs}es{5qs}et{17su5tu5qw5rs}eu{17su5tu5qs5rs}ev{5qs}6z{17sv5tv5os5qx5rs}fm{5os5qt5rs}fn{17sv5tv5os5qx5rs}fo{17sv5tv5os5qx5rs}fp{5os5qt5rs}fq{5os5qt5rs}7r{ckuclucmucnucoucpu4lu5os}fs{17sv5tv5os5qx5rs}ft{17ss5ts5qs}fu{17sw5tw5qs}fv{17sw5tw5qs}fw{17ss5ts5qs}fz{ckuclucmucnucoucpu4lu5os5rs}}}",
         ),
         "Helvetica-Oblique": uncompress(
-          "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}"
+          "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}",
         ),
       },
     };
@@ -6162,7 +6162,7 @@ somewhere around "pdfEscape" call.
       for (var i = 0; i < this.internal.pages[n].length; i++)
         this.internal.pages[n][i] = this.internal.pages[n][i].replace(
           replaceExpression,
-          this.internal.getNumberOfPages()
+          this.internal.getNumberOfPages(),
         );
     }
     return this;
@@ -6246,7 +6246,7 @@ somewhere around "pdfEscape" call.
         URL = view.URL = function (uri) {
           var uri_info = document.createElementNS(
               "http://www.w3.org/1999/xhtml",
-              "a"
+              "a",
             ),
             uri_origin;
           uri_info.href = uri;
@@ -6344,7 +6344,7 @@ somewhere around "pdfEscape" call.
         return new FakeBlob(
           this.data.slice(start, args > 1 ? end : this.data.length),
           type,
-          this.encoding
+          this.encoding,
         );
       };
       FB_proto.toString = function () {
@@ -6371,7 +6371,7 @@ somewhere around "pdfEscape" call.
   (typeof self !== "undefined" && self) ||
     (typeof window !== "undefined" && window) ||
     this.content ||
-    this
+    this,
 );
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
@@ -6427,7 +6427,7 @@ var saveAs =
           false,
           false,
           0,
-          null
+          null,
         );
         node.dispatchEvent(event);
       },
@@ -6484,7 +6484,7 @@ var saveAs =
           dispatch_all = function () {
             dispatch(
               filesaver,
-              "writestart progress write writeend".split(" ")
+              "writestart progress write writeend".split(" "),
             );
           },
           // on any filesys errors revert to saving with object URLs
@@ -6592,10 +6592,10 @@ var saveAs =
                           };
                           filesaver.readyState = filesaver.WRITING;
                         }),
-                        fs_error
+                        fs_error,
                       );
                     }),
-                    fs_error
+                    fs_error,
                   );
                 };
                 dir.getFile(
@@ -6612,13 +6612,13 @@ var saveAs =
                     } else {
                       fs_error();
                     }
-                  })
+                  }),
                 );
               }),
-              fs_error
+              fs_error,
             );
           }),
-          fs_error
+          fs_error,
         );
       },
       FS_proto = FileSaver.prototype,
@@ -6647,7 +6647,7 @@ var saveAs =
   })(
     (typeof self !== "undefined" && self) ||
       (typeof window !== "undefined" && window) ||
-      this.content
+      this.content,
   );
 // `self` is undefined in Firefox for Android content script context
 // while `this` is nsIContentFrameMessageManager
@@ -7053,7 +7053,7 @@ var Deflater = (function (obj) {
     // IN assertion: 1 <= len <= 15
     function bi_reverse(
       code, // the value to invert
-      len // its bit length
+      len, // its bit length
     ) {
       var res = 0;
       do {
@@ -7073,7 +7073,7 @@ var Deflater = (function (obj) {
     function gen_codes(
       tree, // the tree to decorate
       max_code, // largest code with non zero frequency
-      bl_count // number of codes at each bit length
+      bl_count, // number of codes at each bit length
     ) {
       var next_code = []; // next code value for each
       // bit length
@@ -7293,7 +7293,7 @@ var Deflater = (function (obj) {
     Tree.extra_lbits,
     LITERALS + 1,
     L_CODES,
-    MAX_BITS
+    MAX_BITS,
   );
 
   StaticTree.static_d_desc = new StaticTree(
@@ -7301,7 +7301,7 @@ var Deflater = (function (obj) {
     Tree.extra_dbits,
     0,
     D_CODES,
-    MAX_BITS
+    MAX_BITS,
   );
 
   StaticTree.static_bl_desc = new StaticTree(
@@ -7309,7 +7309,7 @@ var Deflater = (function (obj) {
     Tree.extra_blbits,
     0,
     BL_CODES,
-    MAX_BL_BITS
+    MAX_BL_BITS,
   );
 
   // Deflate
@@ -7605,7 +7605,7 @@ var Deflater = (function (obj) {
     // two sons).
     that.pqdownheap = function (
       tree, // the tree to restore
-      k // node to move down
+      k, // node to move down
     ) {
       var heap = that.heap;
       var v = heap[k];
@@ -7634,7 +7634,7 @@ var Deflater = (function (obj) {
     // in the bit length tree.
     function scan_tree(
       tree, // the tree to be scanned
-      max_code // and its largest code of non zero frequency
+      max_code, // and its largest code of non zero frequency
     ) {
       var n; // iterates over all tree elements
       var prevlen = -1; // last emitted length
@@ -7749,7 +7749,7 @@ var Deflater = (function (obj) {
     // bl_tree.
     function send_tree(
       tree, // the tree to be sent
-      max_code // and its largest code of non zero frequency
+      max_code, // and its largest code of non zero frequency
     ) {
       var n; // iterates over all tree elements
       var prevlen = -1; // last emitted length
@@ -7862,7 +7862,7 @@ var Deflater = (function (obj) {
     // the current block must be flushed.
     function _tr_tally(
       dist, // distance of matched string
-      lc // match length-MIN_MATCH or unmatched char (if dist==0)
+      lc, // match length-MIN_MATCH or unmatched char (if dist==0)
     ) {
       var out_length, in_length, dcode;
       that.pending_buf[d_buf + last_lit * 2] = (dist >>> 8) & 0xff;
@@ -7968,7 +7968,7 @@ var Deflater = (function (obj) {
     function copy_block(
       buf, // the input data
       len, // its length
-      header // true if block header must be written
+      header, // true if block header must be written
     ) {
       bi_windup(); // align on byte boundary
       last_eob_len = 8; // enough lookahead for inflate
@@ -7986,7 +7986,7 @@ var Deflater = (function (obj) {
     function _tr_stored_block(
       buf, // input block
       stored_len, // length of input block
-      eof // true if this is the last block for a file
+      eof, // true if this is the last block for a file
     ) {
       send_bits((STORED_BLOCK << 1) + (eof ? 1 : 0), 3); // send block type
       copy_block(buf, stored_len, true); // with header
@@ -7997,7 +7997,7 @@ var Deflater = (function (obj) {
     function _tr_flush_block(
       buf, // input block, or NULL if too old
       stored_len, // length of input block
-      eof // true if this is the last block for a file
+      eof, // true if this is the last block for a file
     ) {
       var opt_lenb, static_lenb; // opt_len and static_len in bytes
       var max_blindex = 0; // index of last bit length code of non zero freq
@@ -8045,7 +8045,7 @@ var Deflater = (function (obj) {
         send_all_trees(
           l_desc.max_code + 1,
           d_desc.max_code + 1,
-          max_blindex + 1
+          max_blindex + 1,
         );
         compress_block(dyn_ltree, dyn_dtree);
       }
@@ -8064,7 +8064,7 @@ var Deflater = (function (obj) {
       _tr_flush_block(
         block_start >= 0 ? block_start : -1,
         strstart - block_start,
-        eof
+        eof,
       );
       block_start = strstart;
       strm.flush_pending();
@@ -8497,7 +8497,7 @@ var Deflater = (function (obj) {
 
           bflush = _tr_tally(
             strstart - 1 - prev_match,
-            prev_length - MIN_MATCH
+            prev_length - MIN_MATCH,
           );
 
           // Insert in hash table all strings up to the end of the match.
@@ -8585,7 +8585,7 @@ var Deflater = (function (obj) {
       bits,
       _method,
       memLevel,
-      _strategy
+      _strategy,
     ) {
       if (!_method) _method = Z_DEFLATED;
       if (!memLevel) memLevel = DEF_MEM_LEVEL;
@@ -8936,7 +8936,7 @@ var Deflater = (function (obj) {
       that.avail_in -= len;
       buf.set(
         that.next_in.subarray(that.next_in_index, that.next_in_index + len),
-        start
+        start,
       );
       that.next_in_index += len;
       that.total_in += len;
@@ -8965,9 +8965,9 @@ var Deflater = (function (obj) {
       that.next_out.set(
         that.dstate.pending_buf.subarray(
           that.dstate.pending_out,
-          that.dstate.pending_out + len
+          that.dstate.pending_out + len,
         ),
-        that.next_out_index
+        that.next_out_index,
       );
 
       that.next_out_index += len;
@@ -9245,7 +9245,7 @@ var Deflater = (function (obj) {
             key = String.fromCharCode.apply(String, text.slice(0, index));
             this.text[key] = String.fromCharCode.apply(
               String,
-              text.slice(index + 1)
+              text.slice(index + 1),
             );
             break;
           case "IEND":
@@ -9591,7 +9591,7 @@ var Deflater = (function (obj) {
     PNG.prototype.stopAnimation = function () {
       var _ref;
       return clearTimeout(
-        (_ref = this.animation) != null ? _ref._timeout : void 0
+        (_ref = this.animation) != null ? _ref._timeout : void 0,
       );
     };
 
@@ -10032,10 +10032,10 @@ var FlateStream = (function () {
       }
 
       litCodeTable = this.generateHuffmanTable(
-        codeLengths.slice(0, numLitCodes)
+        codeLengths.slice(0, numLitCodes),
       );
       distCodeTable = this.generateHuffmanTable(
-        codeLengths.slice(numLitCodes, codes)
+        codeLengths.slice(numLitCodes, codes),
       );
     } else {
       error("Unknown block type in flate stream");
@@ -10312,5 +10312,5 @@ var FlateStream = (function () {
 })(
   (typeof self !== "undefined" && self) ||
     (typeof window !== "undefined" && window) ||
-    this
+    this,
 );

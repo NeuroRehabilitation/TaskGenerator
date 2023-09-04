@@ -63,7 +63,7 @@ function associationTask_pics(size, newpage) {
         35,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       left.splice(index, 1);
 
@@ -74,7 +74,7 @@ function associationTask_pics(size, newpage) {
         100 + 7 * step,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       right.splice(index, 1);
     }

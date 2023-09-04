@@ -15,7 +15,7 @@ function createCover(
   memory,
   executivefunctions,
   language,
-  difficulty
+  difficulty,
 ) {
   doc = new jsPDF();
   page = 1;
@@ -55,7 +55,7 @@ function createCover(
   doc.text(
     20,
     130,
-    "O seguinte programa de treinamento cognitivo foi projetado para...\n\nNome: ___________________________________________________________________"
+    "O seguinte programa de treinamento cognitivo foi projetado para...\n\nNome: ___________________________________________________________________",
   );
   doc.text(20, 130, "\n\n            " + name);
   doc.text(
@@ -71,7 +71,7 @@ function createCover(
       language +
       ", Dificuldade: " +
       difficulty +
-      ")"
+      ")",
   );
   doc.setFontType("normal");
 
@@ -193,7 +193,7 @@ function generateTraining(
   executivefunctions,
   language,
   difficulty,
-  closeMatch
+  closeMatch,
 ) {
   createCover(
     name,
@@ -201,7 +201,7 @@ function generateTraining(
     memory,
     executivefunctions,
     language,
-    difficulty
+    difficulty,
   );
 
   var clipart = Math.floor(Math.random() * 2);
@@ -260,7 +260,7 @@ function generateTraining(
             probability[i_probability],
             size,
             numbers[i_numbers],
-            order[i_order]
+            order[i_order],
           );
           sum =
             Math.pow(parseFloat(model[0]) - attention, 2) +
@@ -292,7 +292,7 @@ function generateTraining(
       size,
       parseFloat(closest[3]),
       parseFloat(closest[4]),
-      1
+      1,
     );
 
   //Search for optimal sequencingTask parameters
@@ -318,7 +318,7 @@ function generateTraining(
               step[i_step],
               order[i_order],
               where[i_where],
-              missing[i_missing]
+              missing[i_missing],
             );
             sum =
               Math.pow(parseFloat(model[0]) - attention, 2) +
@@ -348,7 +348,7 @@ function generateTraining(
       parseFloat(closest[2]),
       parseFloat(closest[3]),
       parseFloat(closest[4]),
-      1
+      1,
     );
 
   //Search for optimal problem resolution parameters
@@ -384,7 +384,7 @@ function generateTraining(
       parseFloat(closest[0]),
       parseFloat(closest[1]),
       parseFloat(closest[2]),
-      1
+      1,
     );
 
   //Search for optimal associationTask parameters

@@ -295,7 +295,7 @@ function problemTask(size, tens, explicit, newpage) {
         if (i < size - 1) {
           if (operations[index] == " * ")
             index = Math.floor(Math.random() * (operations.length - 3)).toFixed(
-              0
+              0,
             );
           else index = Math.floor(Math.random() * operations.length).toFixed(0);
           sequence.push(operations[index]);

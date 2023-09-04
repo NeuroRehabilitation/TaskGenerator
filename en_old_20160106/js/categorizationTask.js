@@ -91,7 +91,7 @@ function categorizationTask(categories, elements, newpage) {
             j,
         80 + (i * 2 * dimension) / 1.7,
         dimension,
-        dimension
+        dimension,
       );
       pairs.splice(index, 1);
     }
@@ -101,7 +101,7 @@ function categorizationTask(categories, elements, newpage) {
   doc.text(
     20,
     275,
-    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)"
+    "* Images from the IPNP picture naming database (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)",
   );
 
   var string = doc.output("datauristring");

@@ -238,7 +238,7 @@
       var $btn = $(e.target);
       if (!$btn.hasClass("btn")) $btn = $btn.closest(".btn");
       $btn.button("toggle");
-    }
+    },
   );
 })(window.jQuery);
 /* ==========================================================
@@ -282,7 +282,7 @@
         !this.paused &&
         (this.interval = setInterval(
           $.proxy(this.next, this),
-          this.options.interval
+          this.options.interval,
         ));
       return this;
     },
@@ -395,7 +395,7 @@
         options = $.extend(
           {},
           $.fn.carousel.defaults,
-          typeof option == "object" && option
+          typeof option == "object" && option,
         ),
         action = typeof option == "string" ? option : options.slide;
       if (!data) $this.data("carousel", (data = new Carousel(this, options)));
@@ -428,7 +428,7 @@
       href,
       $target = $(
         $this.attr("data-target") ||
-          ((href = $this.attr("href")) && href.replace(/.*(?=#[^\s]+$)/, ""))
+          ((href = $this.attr("href")) && href.replace(/.*(?=#[^\s]+$)/, "")),
       ), //strip for ie7
       options = $.extend({}, $target.data(), $this.data());
     $target.carousel(options);
@@ -592,7 +592,7 @@
         option = $(target).data("collapse") ? "toggle" : $this.data();
       $this[$(target).hasClass("in") ? "addClass" : "removeClass"]("collapsed");
       $(target).collapse(option);
-    }
+    },
   );
 })(window.jQuery);
 /* ============================================================
@@ -743,7 +743,7 @@
       ".dropdown form",
       function (e) {
         e.stopPropagation();
-      }
+      },
     )
     .on("touchstart.dropdown.data-api", ".dropdown-menu", function (e) {
       e.stopPropagation();
@@ -751,12 +751,12 @@
     .on(
       "click.dropdown.data-api touchstart.dropdown.data-api",
       toggle,
-      Dropdown.prototype.toggle
+      Dropdown.prototype.toggle,
     )
     .on(
       "keydown.dropdown.data-api touchstart.dropdown.data-api",
       toggle + ", [role=menu]",
-      Dropdown.prototype.keydown
+      Dropdown.prototype.keydown,
     );
 })(window.jQuery);
 /* =========================================================
@@ -789,7 +789,7 @@
     this.$element = $(element).delegate(
       '[data-dismiss="modal"]',
       "click.dismiss.modal",
-      $.proxy(this.hide, this)
+      $.proxy(this.hide, this),
     );
     this.options.remote &&
       this.$element.find(".modal-body").load(this.options.remote);
@@ -918,13 +918,13 @@
         var doAnimate = $.support.transition && animate;
 
         this.$backdrop = $(
-          '<div class="modal-backdrop ' + animate + '" />'
+          '<div class="modal-backdrop ' + animate + '" />',
         ).appendTo(document.body);
 
         this.$backdrop.click(
           this.options.backdrop == "static"
             ? $.proxy(this.$element[0].focus, this.$element[0])
-            : $.proxy(this.hide, this)
+            : $.proxy(this.hide, this),
         );
 
         if (doAnimate) this.$backdrop[0].offsetWidth; // force reflow
@@ -940,7 +940,7 @@
         $.support.transition && this.$element.hasClass("fade")
           ? this.$backdrop.one(
               $.support.transition.end,
-              $.proxy(this.removeBackdrop, this)
+              $.proxy(this.removeBackdrop, this),
             )
           : this.removeBackdrop();
       } else if (callback) {
@@ -962,7 +962,7 @@
           {},
           $.fn.modal.defaults,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == "object" && option,
         );
       if (!data) $this.data("modal", (data = new Modal(this, options)));
       if (typeof option == "string") data[option]();
@@ -994,14 +994,14 @@
       href = $this.attr("href"),
       $target = $(
         $this.attr("data-target") ||
-          (href && href.replace(/.*(?=#[^\s]+$)/, ""))
+          (href && href.replace(/.*(?=#[^\s]+$)/, "")),
       ), //strip for ie7
       option = $target.data("modal")
         ? "toggle"
         : $.extend(
             { remote: !/#/.test(href) && href },
             $target.data(),
-            $this.data()
+            $this.data(),
           );
 
     e.preventDefault();
@@ -1056,7 +1056,7 @@
         this.$element.on(
           "click." + this.type,
           this.options.selector,
-          $.proxy(this.toggle, this)
+          $.proxy(this.toggle, this),
         );
       } else if (this.options.trigger != "manual") {
         eventIn = this.options.trigger == "hover" ? "mouseenter" : "focus";
@@ -1064,12 +1064,12 @@
         this.$element.on(
           eventIn + "." + this.type,
           this.options.selector,
-          $.proxy(this.enter, this)
+          $.proxy(this.enter, this),
         );
         this.$element.on(
           eventOut + "." + this.type,
           this.options.selector,
-          $.proxy(this.leave, this)
+          $.proxy(this.leave, this),
         );
       }
 
@@ -1086,7 +1086,7 @@
         {},
         $.fn[this.type].defaults,
         options,
-        this.$element.data()
+        this.$element.data(),
       );
 
       if (options.delay && typeof options.delay == "number") {
@@ -1221,7 +1221,7 @@
         typeof $e.attr("data-original-title") != "string"
       ) {
         $e.attr("data-original-title", $e.attr("title") || "").removeAttr(
-          "title"
+          "title",
         );
       }
     },
@@ -1237,7 +1237,7 @@
         {
           width: this.$element[0].offsetWidth,
           height: this.$element[0].offsetHeight,
-        }
+        },
       );
     },
 
@@ -1733,7 +1733,7 @@
     function (e) {
       e.preventDefault();
       $(this).tab("show");
-    }
+    },
   );
 })(window.jQuery);
 /* =============================================================
@@ -1868,7 +1868,7 @@
         new RegExp("(" + query + ")", "ig"),
         function ($1, match) {
           return "<strong>" + match + "</strong>";
-        }
+        },
       );
     },
 
@@ -2057,7 +2057,7 @@
       if ($this.data("typeahead")) return;
       e.preventDefault();
       $this.typeahead($this.data());
-    }
+    },
   );
 })(window.jQuery);
 /* ==========================================================
@@ -2093,7 +2093,7 @@
         "click.affix.data-api",
         $.proxy(function () {
           setTimeout($.proxy(this.checkPosition, this), 1);
-        }, this)
+        }, this),
       );
     this.$element = $(element);
     this.checkPosition();

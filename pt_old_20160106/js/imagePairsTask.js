@@ -55,7 +55,7 @@ function imagePairsTask(size, clipart, newpage) {
       28,
       77 + dimension * i,
       dimension - 10,
-      dimension - 10
+      dimension - 10,
     );
     pairs.splice(index, 1);
     index = Math.floor(Math.random() * pairs.length);
@@ -65,7 +65,7 @@ function imagePairsTask(size, clipart, newpage) {
       190 - dimension,
       77 + dimension * i,
       dimension - 10,
-      dimension - 10
+      dimension - 10,
     );
     pairs.splice(index, 1);
   }
@@ -76,7 +76,7 @@ function imagePairsTask(size, clipart, newpage) {
     doc.text(
       20,
       275,
-      "* Imagens do banco de dados IPNP nomeação de figuras (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)"
+      "* Imagens do banco de dados IPNP nomeação de figuras (http://crl.ucsd.edu/experiments/ipnp/method/getpics/getpics.html)",
     );
   }
 
